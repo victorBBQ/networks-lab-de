@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Hint from "../components/Hint.astro";
 ---
 
 <html lang="es" class="scroll-smooth">
@@ -21,7 +20,7 @@ import Hint from "../components/Hint.astro";
     <div class="flex">
       <aside
         class="hidden overflow-y-auto
-          h-screen w-64
+          h-screen w-80
           p-8
           bg-black/40
           border-r border-white/5
@@ -113,7 +112,7 @@ import Hint from "../components/Hint.astro";
       </aside>
 
       <main
-        class="max-w-6xl w-full
+        class="max-w-7xl w-full
           p-8
           md:p-16
           lg:ml-72"
@@ -366,41 +365,36 @@ import Hint from "../components/Hint.astro";
                 </div>
               </div>
             </div>
-            <div
-              class="overflow-x-auto
-                p-8
-                text-blue-300 leading-relaxed"
-            >
-              <pre>enable
-configure terminal
-hostname [Device_Name]
-ip domain-name lab.test
-no ip domain-lookup
-
-username cisco privilege 15 secret cisco
-enable secret cisco
-service password-encryption
-
-banner motd # ZUTRITT NUR FÜR BEFUGTE PERSONEN #
-
-access-list 10 permit 10.0.8.0 0.0.0.255
-
-line console 0
- exec-timeout 0 0
- logging synchronous
- login
-exit
-
-line vty 0 15
- exec-timeout 0 0
- login local
- transport input ssh
- access-class 10 in
-exit
-
-logging buffered 8192
-crypto key generate rsa  (Elegir 1024)
-ip ssh version 2</pre>
+            <div class="overflow-x-auto p-8 text-blue-300 leading-relaxed">
+              <p>enable</p>
+              <p>configure terminal</p>
+              <p>hostname [Device_Name]</p>
+              <p>ip domain-name lab.test</p>
+              <p>no ip domain-lookup</p>
+              <br />
+              <p>username cisco privilege 15 secret cisco</p>
+              <p>enable secret cisco</p>
+              <p>service password-encryption</p>
+              <br />
+              <p>banner motd # ZUTRITT NUR FÜR BEFUGTE PERSONEN #</p>
+              <br />
+              <p>access-list 10 permit 10.0.8.0 0.0.0.255</p>
+              <br />
+              <p>line console 0</p>
+              <p class="pl-4">exec-timeout 0 0</p> <p class="pl-4">logging synchronous</p>
+              <p class="pl-4">login</p>
+              <p class="pl-4">exit</p>
+              <br />
+              <p>line vty 0 15</p>
+              <p class="pl-4">exec-timeout 0 0</p>
+              <p class="pl-4">login local</p>
+              <p class="pl-4">transport input ssh</p>
+              <p class="pl-4">access-class 10 in</p>
+              <p class="pl-4">exit</p>
+              <br />
+              <p>logging buffered 8192</p>
+              <p>crypto key generate rsa</p>
+              <p>ip ssh version 2</p>
             </div>
           </div>
         </section>
@@ -623,7 +617,7 @@ ip ssh version 2</pre>
                     <p class="pl-4">no shut</p>
                     <p class="pl-4">exit</p>
                     <br/>
-                    <p class="font-bold">ip default-gateway 10.0.8.2</p>
+                    <p class="font-bold">ip default-gateway 10.0.8.1</p>
                   </div>
                 </div>
               </div>
@@ -693,7 +687,7 @@ ip ssh version 2</pre>
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Gateways (SVIs) y HSRP
+                    // Gateways (SVIs) y HSRP (Hot Standby Router Protocol)
                   </p>
                   <div
                     class="p-4 space-y-4
@@ -704,19 +698,19 @@ ip ssh version 2</pre>
                     <div>
                       <p class="text-slate-500
                           italic">
-                        // VLAN 12 & 13 (Principales en West)
+                        // VLAN 12 & 13 (Principales en West - G=1)
                       </p>
                       <p class="text-red-400">interface vlan 12</p>
-                      <p class="pl-4">ip address 10.0.12.2 255.255.255.0</p>
-                      <p class="pl-4">standby 12 ip 10.0.12.1</p>
+                      <p class="pl-4">ip address 10.1.12.2 255.255.255.0</p>
+                      <p class="pl-4">standby 12 ip 10.1.12.1</p>
                       <p class="pl-4">standby 12 priority 110</p>
                       <p class="pl-4">standby 12 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
                       <p class="text-red-400">interface vlan 13</p>
-                      <p class="pl-4">ip address 10.0.13.2 255.255.255.0</p>
-                      <p class="pl-4">standby 13 ip 10.0.13.1</p>
+                      <p class="pl-4">ip address 10.1.13.2 255.255.255.0</p>
+                      <p class="pl-4">standby 13 ip 10.1.13.1</p>
                       <p class="pl-4">standby 13 priority 110</p>
                       <p class="pl-4">standby 13 preempt</p>
                       <p class="pl-4">no shut</p>
@@ -728,23 +722,26 @@ ip ssh version 2</pre>
                         // VLAN 22 & 23 (Respaldos Ost)
                       </p>
                       <p class="text-pink-400">interface vlan 22</p>
-                      <p class="pl-4">ip address 10.0.22.2 255.255.255.0</p>
-                      <p class="pl-4">standby 22 ip 10.0.22.1</p>
+                      <p class="pl-4">ip address 10.2.22.3 255.255.255.0</p>
+                      <p class="pl-4">standby 22 ip 10.2.22.1</p>
                       <p class="pl-4">standby 22 priority 100</p>
                       <p class="pl-4">standby 22 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
                       <p class="text-pink-400">interface vlan 23</p>
-                      <p class="pl-4">ip address 10.0.23.2 255.255.255.0</p>
-                      <p class="pl-4">standby 23 ip 10.0.23.1</p>
+                      <p class="pl-4">ip address 10.2.23.3 255.255.255.0</p>
+                      <p class="pl-4">standby 23 ip 10.2.23.1</p>
                       <p class="pl-4">standby 23 priority 100</p>
                       <p class="pl-4">standby 23 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>                      
                       <br />
-                      <p class="text-blue-400">interface vlan 8</p>
-                      <p class="pl-4">ip address 10.0.8.1 255.255.255.0</p>
+                      <p class="text-blue-400">interface vlan 8 <span class="text-black/40">h</span></p>
+                      <p class="pl-4">ip address 10.0.8.2 255.255.255.0</p>
+                      <p class="pl-4">standby 8 ip 10.0.8.1</p>
+                      <p class="pl-4">standby 8 priority 110</p>
+                      <p class="pl-4">standby 8 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                     </div>
@@ -770,7 +767,7 @@ ip ssh version 2</pre>
                     <br />
                     <p>ip access-list extended SERVER_SECURITY</p>
                     <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
-                    <p class="pl-4">deny ip 10.0.0.0 0.0.255.255 10.0.99.0 0.0.0.255</p>
+                    <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
                     <p class="pl-4">permit ip any any</p>
                     <p class="pl-4">exit</p>
                     <br />
@@ -806,10 +803,10 @@ ip ssh version 2</pre>
                     <p class="pl-4">no shut</p>
                     <p class="pl-4">exit</p>
                     <br/>
-                    <p class="text-slate-500 italic"> // Hacia Router 2</p>
+                    <p class="text-slate-500 italic"> // Hacia Router 1</p>
                     <p>interface gig0/3 (example)</p>
                     <p class="pl-4">no switchport</p>
-                    <p class="pl-4">ip address 10.0.1.2 255.255.255.252</p>
+                    <p class="pl-4">ip address 10.1.1.2 255.255.255.252</p>
                     <p class="pl-4">no shut</p>
                     <p class="pl-4">exit</p>
                   </div>
@@ -821,31 +818,31 @@ ip ssh version 2</pre>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm">
                     <p class="text-slate-500 italic"> // Exclusiones</p>
                     <p>ip dhcp excluded-address 10.0.8.1 10.0.8.20</p>
-                    <p>ip dhcp excluded-address 10.0.12.1 10.0.12.20</p>
-                    <p>ip dhcp excluded-address 10.0.13.1 10.0.13.20</p>
-                    <p>ip dhcp excluded-address 10.0.22.1 10.0.22.20</p>
-                    <p>ip dhcp excluded-address 10.0.23.1 10.0.23.20</p>
+                    <p>ip dhcp excluded-address 10.1.12.1 10.1.12.20</p>
+                    <p>ip dhcp excluded-address 10.1.13.1 10.1.13.20</p>
+                    <p>ip dhcp excluded-address 10.2.22.1 10.2.22.20</p>
+                    <p>ip dhcp excluded-address 10.2.23.1 10.2.23.20</p>
                     <br />
 
                     <p class="text-slate-500 italic"> // POOLS de direcciones</p>
                     <p>ip dhcp pool POOL_V12_WEST_RED</p>
-                    <p class="pl-4">network 10.0.12.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.12.1</p>
+                    <p class="pl-4">network 10.1.12.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.1.12.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_V13_WEST_BLUE</p>
-                    <p class="pl-4">network 10.0.13.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.13.1</p>
+                    <p class="pl-4">network 10.1.13.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.1.13.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_V22_OST_PINK</p>
-                    <p class="pl-4">network 10.0.22.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.22.1</p>
+                    <p class="pl-4">network 10.2.22.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.2.22.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_V23_OST_PURPLE</p>
-                    <p class="pl-4">network 10.0.23.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.23.1</p>
+                    <p class="pl-4">network 10.2.23.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.2.23.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_MGMT</p>
@@ -890,8 +887,7 @@ ip ssh version 2</pre>
 
               <div
                 class="space-y-8
-                  font-mono text-[12px] leading-relaxed
-                  italic"
+                  font-mono text-[12px] leading-relaxed"
               >
                 <div>
                   <p
@@ -924,22 +920,22 @@ ip ssh version 2</pre>
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Gateways (SVIs) y HSRP
+                    // Gateways (SVIs) y HSRP (Hot Standby Router Protocol)
                   </p>
                   <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-blue-100 space-y-4 text-sm">
                     <div>
-                      <p class="text-slate-500 italic">// VLAN 22 & 23 (Principales Ost)</p>
+                      <p class="text-slate-500 italic">// VLAN 22 & 23 (Principales Ost - G=2)</p>
                       <p class="text-pink-400">interface vlan 22</p>
-                      <p class="pl-4">ip address 10.0.22.3 255.255.255.0</p>
-                      <p class="pl-4">standby 22 ip 10.0.22.1</p>
+                      <p class="pl-4">ip address 10.2.22.2 255.255.255.0</p>
+                      <p class="pl-4">standby 22 ip 10.2.22.1</p>
                       <p class="pl-4">standby 22 priority 110</p>
                       <p class="pl-4">standby 22 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br>
                       <p class="text-pink-400">interface vlan 23</p>
-                      <p class="pl-4">ip address 10.0.23.3 255.255.255.0</p>
-                      <p class="pl-4">standby 23 ip 10.0.23.1</p>
+                      <p class="pl-4">ip address 10.2.23.2 255.255.255.0</p>
+                      <p class="pl-4">standby 23 ip 10.2.23.1</p>
                       <p class="pl-4">standby 23 priority 110</p>
                       <p class="pl-4">standby 23 preempt</p>
                       <p class="pl-4">no shut</p>
@@ -948,23 +944,26 @@ ip ssh version 2</pre>
                     <div>
                       <p class="text-slate-500 italic">// VLAN 12 & 13 (Respaldos West)</p>
                       <p class="text-red-400" >interface vlan 12</p>
-                      <p class="pl-4">ip address 10.0.12.3 255.255.255.0</p>
-                      <p class="pl-4">standby 12 ip 10.0.12.1</p>
+                      <p class="pl-4">ip address 10.1.12.3 255.255.255.0</p>
+                      <p class="pl-4">standby 12 ip 10.1.12.1</p>
                       <p class="pl-4">standby 12 priority 100</p>
                       <p class="pl-4">standby 12 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br>
                       <p class="text-red-400">interface vlan 13</p>
-                      <p class="pl-4">ip address 10.0.13.3 255.255.255.0</p>
-                      <p class="pl-4">standby 13 ip 10.0.13.1</p>
+                      <p class="pl-4">ip address 10.1.13.3 255.255.255.0</p>
+                      <p class="pl-4">standby 13 ip 10.1.13.1</p>
                       <p class="pl-4">standby 13 priority 100</p>
                       <p class="pl-4">standby 13 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
-                      <p class="text-blue-400">interface vlan 8</p>
-                      <p class="pl-4">ip address 10.0.8.2 255.255.255.0</p>
+                      <p class="text-blue-400">interface vlan 8 <span class="text-black/40">h</span></p>
+                      <p class="pl-4">ip address 10.0.8.3 255.255.255.0</p>
+                      <p class="pl-4">standby 8 ip 10.0.8.1</p>
+                      <p class="pl-4">standby 8 priority 100</p>
+                      <p class="pl-4">standby 8 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                     </div>
@@ -990,9 +989,9 @@ ip ssh version 2</pre>
                     <br />
                     <p>ip access-list extended SERVER_SECURITY</p>
                     <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
-                    <p class="pl-4">deny ip 10.0.0.0 0.0.255.255 10.0.99.0 0.0.0.255</p>
+                    <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
                     <p class="pl-4">permit ip any any</p>
-                    <p>exit</p>
+                    <p class="pl-4">exit</p>
                     <br />
                     <p>interface vlan 99</p>
                     <p class="pl-4">ip access-group SERVER_SECURITY out</p>
@@ -1023,7 +1022,7 @@ ip ssh version 2</pre>
                     <p class="text-slate-500 italic"> // Hacia Router 2</p>
                     <p>interface gig0/3 (example)</p>
                     <p class="pl-4">no switchport</p>
-                    <p class="pl-4">ip address 10.0.2.2 255.255.255.252</p>
+                    <p class="pl-4">ip address 10.2.2.2 255.255.255.252</p>
                     <p class="pl-4">no shut</p>
                     <p class="pl-4">exit</p>
                   </div>
@@ -1034,36 +1033,36 @@ ip ssh version 2</pre>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm">
                     <p class="text-slate-500 italic"> // Exclusiones</p>
                     <p>ip dhcp excluded-address 10.0.8.1 10.0.8.20</p>
-                    <p>ip dhcp excluded-address 10.0.12.1 10.0.12.20</p>
-                    <p>ip dhcp excluded-address 10.0.13.1 10.0.13.20</p>
-                    <p>ip dhcp excluded-address 10.0.22.1 10.0.22.20</p>
-                    <p>ip dhcp excluded-address 10.0.23.1 10.0.23.20</p>
+                    <p>ip dhcp excluded-address 10.1.12.1 10.1.12.20</p>
+                    <p>ip dhcp excluded-address 10.1.13.1 10.1.13.20</p>
+                    <p>ip dhcp excluded-address 10.2.22.1 10.2.22.20</p>
+                    <p>ip dhcp excluded-address 10.2.23.1 10.2.23.20</p>
                     <br />
 
                     <p class="text-slate-500 italic"> // POOLS de direcciones</p>
                     <p>ip dhcp pool POOL_V12_WEST_RED</p>
-                    <p class="pl-4">network 10.0.12.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.12.1</p>
+                    <p class="pl-4">network 10.1.12.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.1.12.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_V13_WEST_BLUE</p>
-                    <p class="pl-4">network 10.0.13.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.13.1</p>
+                    <p class="pl-4">network 10.1.13.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.1.13.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_V22_OST_PINK</p>
-                    <p class="pl-4">network 10.0.22.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.22.1</p>
+                    <p class="pl-4">network 10.2.22.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.2.22.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_V23_OST_PURPLE</p>
-                    <p class="pl-4">network 10.0.23.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.23.1</p>
+                    <p class="pl-4">network 10.2.23.0 255.255.255.0</p>
+                    <p class="pl-4">default-router 10.2.23.1</p>
                     <p class="pl-4">dns-server 8.8.8.8</p>
                     <br />
                     <p>ip dhcp pool POOL_MGMT</p>
                     <p class="pl-4">network 10.0.8.0 255.255.255.0</p>
-                    <p class="pl-4">default-router 10.0.8.2</p>
+                    <p class="pl-4">default-router 10.0.8.1</p>
                     <br />
 
                     <p class="text-slate-500 italic"> // Configuración de Relay (IP  Helper)</p>
@@ -1167,13 +1166,13 @@ ip ssh version 2</pre>
                       bg-black/40
                       rounded-xl border border-white/5"
                   >
-                    <p class="text-sm">ip route 10.0.22.0 255.255.255.0 10.0.99.2</p>
-                    <p class="text-sm">ip route 10.0.23.0 255.255.255.0 10.0.99.2</p>
+                    <p class="text-sm">ip route 10.2.22.0 255.255.255.0 10.0.99.2</p>
+                    <p class="text-sm">ip route 10.2.23.0 255.255.255.0 10.0.99.2</p>
                     <p
                       class="text-orange-400 font-bold
                         italic text-[13px]"
                     >
-                      ip route 10.0.13.0 255.255.255.0 10.0.99.2 20 (Falla)
+                      ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Falla)
                     </p>
                   </div>
                 </div>
@@ -1193,7 +1192,7 @@ ip ssh version 2</pre>
                       rounded-xl border border-white/5 text-sm"
                   >
                     <p>
-                      ip route 0.0.0.0 0.0.0.0 10.0.1.1 10 <span
+                      ip route 0.0.0.0 0.0.0.0 10.1.1.1 10 <span
                         class="text-slate-500">// Vía Router 1 - Principal</span
                       >
                     </p>
@@ -1244,13 +1243,13 @@ ip ssh version 2</pre>
                       bg-black/40
                       rounded-xl border border-white/5 "
                   >
-                    <p class="text-sm">ip route 10.0.12.0 255.255.255.0 10.0.99.1</p>
-                    <p class="text-sm">ip route 10.0.13.0 255.255.255.0 10.0.99.1</p>
+                    <p class="text-sm">ip route 10.1.12.0 255.255.255.0 10.0.99.1</p>
+                    <p class="text-sm">ip route 10.1.13.0 255.255.255.0 10.0.99.1</p>
                     <p
                       class="text-orange-400 font-bold
                         italic text-[13px]"
                     >
-                      ip route 10.0.23.0 255.255.255.0 10.0.99.1 20 (Falla)
+                      ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Falla)
                     </p>
                   </div>
                 </div>
@@ -1270,7 +1269,7 @@ ip ssh version 2</pre>
                       rounded-xl border border-white/5 text-sm"
                   >
                     <p>
-                      ip route 0.0.0.0 0.0.0.0 10.0.2.1 10 <span
+                      ip route 0.0.0.0 0.0.0.0 10.2.2.1 10 <span
                         class="text-slate-500">// Vía Router 2 - Principal</span
                       >
                     </p>
@@ -1337,7 +1336,7 @@ ip ssh version 2</pre>
                         // Hacia el Switch (LAN)
                       </p>
                       <p>interface f0/1</p>
-                      <p class="pl-4">ip address 10.0.1.1 255.255.255.252</p>
+                      <p class="pl-4">ip address 10.1.1.1 255.255.255.252</p>
                       <p
                         class="pl-4
                           font-bold text-emerald-400"
@@ -1395,7 +1394,7 @@ ip ssh version 2</pre>
                     >
                       // Ruta de Retorno (VITAL)
                     </p>
-                    <p>ip route 10.0.0.0 255.255.0.0 10.0.1.2</p>
+                    <p>ip route 10.0.0.0 255.0.0.0 10.1.1.2</p>
                   </div>
                 </div>
 
@@ -1413,7 +1412,7 @@ ip ssh version 2</pre>
                       bg-black/40
                       rounded-xl border border-white/5 "
                   >
-                    <p class="text-sm">access-list 1 permit 10.0.0.0 0.0.255.255</p>
+                    <p class="text-sm">access-list 1 permit 10.0.0.0 0.255.255.255</p>
                     <p
                       class="font-bold text-blue-400
                         italic"
@@ -1463,7 +1462,7 @@ ip ssh version 2</pre>
                         // Hacia el Switch (LAN)
                       </p>
                       <p>interface f0/1</p>
-                      <p class="pl-4">ip address 10.0.2.1 255.255.255.252</p>
+                      <p class="pl-4">ip address 10.2.2.1 255.255.255.252</p>
                       <p
                         class="pl-4
                           font-bold text-emerald-400"
@@ -1521,7 +1520,7 @@ ip ssh version 2</pre>
                     >
                       // Ruta de Retorno (VITAL)
                     </p>
-                    <p>ip route 10.0.0.0 255.255.0.0 10.0.2.2</p>
+                    <p>ip route 10.0.0.0 255.0.0.0 10.2.2.2</p>
                   </div>
                 </div>
 
@@ -1539,7 +1538,7 @@ ip ssh version 2</pre>
                       bg-black/40
                       rounded-xl border border-white/5"
                   >
-                    <p class="text-sm">access-list 1 permit 10.0.0.0 0.0.255.255</p>
+                    <p class="text-sm">access-list 1 permit 10.0.0.0 0.255.255.255</p>
                     <p
                       class="font-bold text-blue-400
                         italic"
@@ -1914,7 +1913,7 @@ ip ssh version 2</pre>
         <p>interface gig0/0</p>
         <p class="pl-4 italic">ip address 192.168.18.254 255.255.255.0</p>
         <p class="text-slate-500">// Retorno exclusivo a R1</p>
-        <p>ip route 10.0.0.0 255.255.0.0 192.168.18.1</p>
+        <p>ip route 10.0.0.0 255.0.0.0 192.168.18.1</p>
       </div>
     </div>
 
@@ -1924,7 +1923,7 @@ ip ssh version 2</pre>
         <p>interface gig0/0</p>
         <p class="pl-4 italic">ip address 192.168.18.254 255.255.255.0</p>
         <p class="text-slate-500">// Retorno exclusivo a R2</p>
-        <p>ip route 10.0.0.0 255.255.0.0 192.168.18.2</p>
+        <p>ip route 10.0.0.0 255.0.0.0 192.168.18.2</p>
       </div>
     </div>
   </div>
@@ -1932,7 +1931,7 @@ ip ssh version 2</pre>
   <div class="mt-8 p-6 bg-blue-900/10 rounded-2xl border-l-4 border-blue-500 italic">
     <p class="text-sm text-slate-400 leading-relaxed">
       <strong class="text-white uppercase">¿Cómo se logra el salto entre edificios?</strong><br/>
-      Si el cable del ISP West se corta, el <span class="text-white font-mono text-xs italic">Router 1</span> detecta que su interfaz WAN está "Down". Al no tener ruta de salida, deja de anunciar la ruta por defecto a través de <span class="text-blue-400 font-bold">RIP v2</span>. En ese instante, los switches del West aprenden vía RIP que la única salida válida es ahora el <span class="text-pink-400 font-bold">Router 2</span>. El tráfico viajará por el EtherChannel y saldrá por el edificio Ost de forma transparente.
+      Si el cable del ISP West se corta, el <span class="text-blue-400 font-bold">Router 1</span> detecta que su interfaz WAN está "Down". Al no tener ruta de salida, deja de anunciar la ruta por defecto a través de <span class="text-green-400 font-bold">RIP v2</span>. En ese instante, los switches del West aprenden vía RIP que la única salida válida es ahora el <span class="text-pink-400 font-bold">Router 2</span>. El tráfico viajará por el <span class="text-white font-bold">EtherChannel</span> y saldrá por el edificio Ost de forma transparente.
     </p>
   </div>
 </div>
@@ -1974,6 +1973,26 @@ ip ssh version 2</pre>
 <script>
   // 1. Definimos las razones de los comandos aquí (Mantenemos tu estructura funcional)
   const reasons = {
+    //SEGURIDAD DISPOSITIVOS
+    "hostname [Device_Name]": "Asigna un nombre único al equipo para identificarlo rápidamente en el campus. Vital para la administración remota.",
+    "ip domain-name lab.test": "Define el nombre de dominio del dispositivo; es un requisito técnico obligatorio para poder generar las llaves de cifrado SSH.",
+    "no ip domain-lookup": "Evita que el equipo intente resolver comandos mal escritos como si fueran direcciones web, eliminando esperas innecesarias de 30 segundos.",
+    "username cisco privilege 15 secret cisco": "Crea un usuario local con nivel total de administración (privilegio 15) y encripta su contraseña para que no sea visible.",
+    "enable secret cisco": "Protege el acceso al modo de configuración con una contraseña encriptada de alta seguridad, evitando cambios no autorizados.",
+    "service password-encryption": "Encripta todas las contraseñas que aparecen en el archivo de configuración, ocultándolas de miradas indiscretas.",
+
+    // GESTIÓN DE LÍNEAS Y LOGS
+    "logging buffered 8192": "Reserva espacio en la RAM para guardar eventos y errores del sistema, permitiendo revisar fallas pasadas sin servidores externos.",
+    "logging synchronous": "Organiza los mensajes del sistema para que no se mezclen con lo que estás escribiendo, manteniendo la consola legible.",
+    "exec-timeout 0 0": "Desactiva el cierre automático de sesión por inactividad; ideal para entornos de laboratorio donde se requiere conexión constante.",
+
+    // ACCESO REMOTO SEGURO (SSH)
+    "crypto key generate rsa": "Genera las llaves criptográficas necesarias para cifrar la comunicación entre el administrador y el equipo, eliminando el riesgo de espionaje.",
+    "ip ssh version 2": "Fuerza el uso de la versión más moderna y segura de SSH, corrigiendo vulnerabilidades críticas de la versión original.",
+    "transport input ssh": "Bloquea protocolos inseguros como Telnet; garantiza que todas las conexiones administrativas viajen en un túnel encriptado.",
+    "login local": "Configura el acceso para que el equipo valide las credenciales contra la base de datos de usuarios creada localmente.",
+    "access-class 10 in": "Filtro de seguridad que restringe el acceso remoto: solo los equipos de la red de Management (VLAN 8) pueden intentar conectarse.",
+
     // SEGURIDAD DE PUERTOS
     "spanning-tree portfast": "Evita esperas de 30s en el puerto; permite que la laptop reciba IP de inmediato al conectarse sin pasar por estados de escucha de STP.",
     "switchport port-security": "Activa la restricción de acceso físico; impide que cualquier dispositivo no autorizado pueda transmitir datos por este puerto.",
@@ -1983,24 +2002,38 @@ ip ssh version 2</pre>
     "spanning-tree bpduguard enable": "Protege la red de bucles accidentales; si alguien conecta otro switch en la oficina, el puerto se bloquea para evitar una caída total de la red.",
 
     // REDUNDANCIA Y GATEWAYS (HSRP)
-    "standby 12 ip 10.0.12.1": "Crea la 'IP Fantasma' que los usuarios ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
-    "standby 12 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
-    "standby 12 priority 110": "Se elige 110 porque supera el valor por defecto (100). Esto garantiza que este switch sea el 'Active' y procese todo el tráfico de esta VLAN en condiciones normales.",
-    "standby 13 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 13, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
-    "standby 22 priority 110": "Establece a este switch como principal para la VLAN 22; se usa un valor mayor a 100 para evitar que la elección sea aleatoria o basada en la IP más alta.",
-    "standby 23 priority 110": "Prioridad superior para asegurar que este equipo gestione el tráfico inalámbrico y de usuarios del edificio Ost de manera preferente.",
+    "standby 12 ip 10.1.12.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
+    "standby 13 ip 10.1.13.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
+    "standby 22 ip 10.2.22.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
+    "standby 23 ip 10.2.23.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
 
-    "standby 12 priority 100": "Se mantiene en 100 (valor por defecto) para que actúe como switch de respaldo (Standby). Solo asumirá el control si el switch principal (110) deja de responder.",
-    "standby 13 priority 100": "Configuración de respaldo: al ser menor que 110, este equipo permanece en espera, ahorrando recursos y manteniendo la jerarquía de la red.",
+    "standby 12 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+    "standby 13 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+    "standby 22 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+    "standby 23 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+
+    "standby 12 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 12, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
+    "standby 13 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 13, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
+    "standby 22 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 22, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
+    "standby 23 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 23, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
+
+    "standby 12 priority 100": "Define a este equipo como el segundo al mando para la VLAN 12; garantiza continuidad del servicio si el switch principal de West falla.",
+    "standby 13 priority 100": "Define a este equipo como el segundo al mando para la VLAN 13; garantiza continuidad del servicio si el switch principal de West falla.",
     "standby 22 priority 100": "Define a este equipo como el segundo al mando para la VLAN 22; garantiza continuidad del servicio si el switch principal de Ost falla.",
-    "standby 23 priority 100": "Valor de prioridad estándar para el rol de redundancia; asegura que haya un camino de salida alternativo listo para activarse instantáneamente.",
+    "standby 23 priority 100": "Define a este equipo como el segundo al mando para la VLAN 23; garantiza continuidad del servicio si el switch principal de Ost falla.",
+
+    "standby 99 ip 10.0.99.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
     "standby 99 priority 110": "Se asigna 110 para designar a este switch como el 'Gateway Activo'. Al tener una prioridad superior al valor predeterminado, obligamos a que todo el tráfico que entra y sale de los servidores sea procesado por este equipo específicamente.",
     "standby 99 priority 100": "Se establece en 100 para definir el rol de 'Standby' (Respaldo). Este switch monitorea al principal y solo asumirá la carga de la VLAN 99 si detecta que el switch con prioridad 110 ha quedado fuera de servicio, garantizando alta disponibilidad.",
+    "standby 99 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+
+    "interface vlan 8 h": "Crea el Gateway Virtual para la red de Gestión. Es vital para asegurar que los administradores siempre tengan acceso remoto (SSH) a los switches, incluso si uno de los núcleos físicos falla.",
+
 
     // ACL SEGURIDAD SERVIDORES
     "ip access-list extended SERVER_SECURITY": "Define un filtro granular para proteger los servidores; evita que usuarios comunes vean datos sensibles, permitiendo solo a los administradores.",
     "permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255": "Garantiza que solo el personal de Gestión (VLAN 8) pueda entrar a configurar o dar mantenimiento a los servidores.",
-    "deny ip 10.0.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Bloquea proactivamente a todos los demás edificios y usuarios de la red para que no puedan atacar o acceder a los servidores.",
+    "deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255": "Bloquea proactivamente a todos los demás edificios y usuarios de la red para que no puedan atacar o acceder a los servidores.",
     "permit ip any any": "Línea vital que permite que el tráfico general (como la navegación a Internet) siga funcionando después de haber filtrado el acceso a los servidores.",
 
     // ETHERCHANNEL (LACP)
@@ -2013,7 +2046,8 @@ ip ssh version 2</pre>
     "switchport mode trunk": "Convierte el puerto en una 'supercarretera' que transporta datos de todas las VLANs (Gestión, West, Ost, Servidores) simultáneamente.",
 
     // EL PORQUÉ DEL IP HELPER
-    "ip helper-address 10.0.99.2": "Se usa porque las peticiones DHCP son 'broadcast' y los routers/switches L3 las bloquean por defecto. Sin este comando, las laptops nunca alcanzarían al servidor DHCP que está en otra VLAN o edificio, quedando sin internet.",
+    "ip helper-address 10.0.99.1": "Actúa como respaldo de alta disponibilidad. Si el servicio DHCP local falla, este comando reenvía la petición al switch del otro edificio para que entregue la IP, asegurando que nadie se quede sin conexión ante una caída del nodo principal.",
+    "ip helper-address 10.0.99.2": "Actúa como respaldo de alta disponibilidad. Si el servicio DHCP local falla, este comando reenvía la petición al switch del otro edificio para que entregue la IP, asegurando que nadie se quede sin conexión ante una caída del nodo principal.",
 
     // 2. EL PORQUÉ DE RIP V2 (Sección 05)
     "router rip": "Se implementa para que la red sea autónoma; si un enlace se cae, los routers calculan una ruta alternativa en segundos sin intervención humana.",
@@ -2023,32 +2057,44 @@ ip ssh version 2</pre>
     "ip route 10.0.0.0 255.255.0.0 192.168.18.1": "Es una ruta de retorno necesaria en el router del ISP; sin ella, el Internet sabe cómo llegar a tu empresa pero los paquetes no sabrían cómo volver a entrar.",    "no auto-summary": "Vital para que la red no colapse; impide que RIP confunda la VLAN 12 con la 22 al intentar resumirlas, permitiendo que cada edificio mantenga su identidad.",
     
     // RUTAS ESTÁTICAS Y RESPALDOS
-    "ip route 10.0.22.0 255.255.255.0 10.0.99.2": "Establece un 'atajo' directo entre edificios a través del EtherChannel; así el tráfico local no tiene que subir hasta los routers de internet, optimizando la velocidad.",
-    "ip route 10.0.23.0 255.255.255.0 10.0.99.2": "Garantiza que la comunicación entre departamentos de distintos edificios sea privada y no dependa de la conexión externa del ISP.",
-    "ip route 10.0.13.0 255.255.255.0 10.0.99.2 20 (Falla)": "Es el seguro de vida de los datos; si el switch principal de un edificio falla, el tráfico se desvía por el vecino para mantener a los usuarios conectados.",
-    "ip route 0.0.0.0 0.0.0.0 10.0.1.1 10 // Vía Router 1 - Principal": "Es la salida principal. El número '10' es la Distancia Administrativa; se pone baja para que el switch siempre prefiera este camino mientras el Router 1 esté vivo.",
+    "ip route 10.2.22.0 255.255.255.0 10.0.99.2": "Establece un 'atajo' directo entre edificios a través del EtherChannel; así el tráfico local no tiene que subir hasta los routers de internet, optimizando la velocidad.",
+    "ip route 10.2.23.0 255.255.255.0 10.0.99.2": "Garantiza que la comunicación entre departamentos de distintos edificios sea privada y no dependa de la conexión externa del ISP.",
+    "ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Falla)": "Es el seguro de vida de los datos; si el switch principal de un edificio falla, el tráfico se desvía por el vecino para mantener a los usuarios conectados.",
+    "ip route 0.0.0.0 0.0.0.0 10.1.1.1 10 // Vía Router 1 - Principal": "Es la salida principal. El número '10' es la Distancia Administrativa; se pone baja para que el switch siempre prefiera este camino mientras el Router 1 esté vivo.",
     "ip route 0.0.0.0 0.0.0.0 10.0.99.2 50 // Vía Router 2 - Respaldo": "Es una 'Ruta Flotante'. Al tener prioridad 50 (peor que 10), permanece invisible. Solo se activa si el enlace principal muere, garantizando que la empresa nunca se quede sin internet.",
+
+    "ip route 10.1.12.0 255.255.255.0 10.0.99.1": "Establece un 'atajo' directo entre edificios a través del EtherChannel; así el tráfico local no tiene que subir hasta los routers de internet, optimizando la velocidad.",
+    "ip route 10.1.13.0 255.255.255.0 10.0.99.1": "Garantiza que la comunicación entre departamentos de distintos edificios sea privada y no dependa de la conexión externa del ISP.",
+    "ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Falla)": "Es el seguro de vida de los datos; si el switch principal de un edificio falla, el tráfico se desvía por el vecino para mantener a los usuarios conectados.",
+    "ip route 0.0.0.0 0.0.0.0 10.2.2.1 10 // Vía Router 2 - Principal": "Es la salida principal. El número '10' es la Distancia Administrativa; se pone baja para que el switch siempre prefiera este camino mientras el Router 1 esté vivo.",
+    "ip route 0.0.0.0 0.0.0.0 10.0.99.1 50 // Vía Router 1 - Respaldo": "Es una 'Ruta Flotante'. Al tener prioridad 50 (peor que 10), permanece invisible. Solo se activa si el enlace principal muere, garantizando que la empresa nunca se quede sin internet.",
+
     // NAT Y ROUTERS
     "ip nat inside": "Marca la interfaz que da hacia la empresa; le dice al router que los paquetes que entren por aquí deben ser traducidos para poder salir a internet.",
     "ip nat outside": "Marca la interfaz que da al mundo exterior; indica que aquí es donde termina la red privada y comienza la conexión pública del ISP.",
-    "ip route 10.0.0.0 255.255.0.0 10.0.1.2": "Crucial para el retorno: indica al router que los datos que vienen de internet deben enviarse de vuelta al switch core para llegar a las laptops.",
-    "access-list 1 permit 10.0.0.0 0.0.255.255": "Define el grupo de confianza: especifica qué dispositivos internos tienen permiso para que el router les preste su IP pública para navegar.",
-    "ip nat inside source list 1 [interfaz_internet] overload": "Activa PAT (Port Address Translation): permite que cientos de empleados compartan una sola IP pública de forma segura y eficiente."
+
+    "ip route 10.0.0.0 255.0.0.0 10.1.1.2": "Crucial para el retorno: indica al router que los datos que vienen de internet deben enviarse de vuelta al switch GV-L para llegar a las laptops.",
+    "access-list 1 permit 10.0.0.0 0.255.255.255": "Define el grupo de confianza: especifica qué dispositivos internos tienen permiso para que el router les preste su IP pública para navegar.",
+    "ip nat inside source list 1 [interfaz_internet] overload": "Activa PAT (Port Address Translation): permite que cientos de empleados compartan una sola IP pública de forma segura y eficiente.",
+
+    "ip route 10.0.0.0 255.0.0.0 10.2.2.2": "Crucial para el retorno: indica al router que los datos que vienen de internet deben enviarse de vuelta al switch GV-R para llegar a las laptops.",
   };
 
   // 2. Lógica para mostrar el popup (Exactamente tu código original)
-  const tooltip = document.createElement('div');
+const tooltip = document.createElement('div');
   tooltip.className = 'fixed hidden z-50 p-3 bg-slate-800 border border-emerald-500/50 text-emerald-400 text-xs rounded-lg shadow-2xl max-w-xs italic pointer-events-none';
   document.body.appendChild(tooltip);
 
-  // Seleccionamos todos los párrafos dentro de tus cuadros de código
-  document.querySelectorAll('div[class*="bg-black/40"] p').forEach(p => {
-    const command = p.innerText.trim();
+  // ESTA ES LA LÍNEA CLAVE: Selecciona ambos tipos de contenedores
+  document.querySelectorAll('div[class*="bg-black/40"] p, div.overflow-x-auto p').forEach(p => {
+    
+    // Limpieza profunda para asegurar que el match sea exacto
+    const command = p.innerText.replace(/\u00a0/g, " ").trim();
     
     if (reasons[command]) {
       p.classList.add('cursor-help', 'hover:text-emerald-400', 'transition-colors');
       
-      p.addEventListener('mouseenter', (e) => {
+      p.addEventListener('mouseenter', () => {
         tooltip.innerHTML = `<strong class="block text-white not-italic mb-1 uppercase text-[10px]">¿Por qué?</strong>${reasons[command]}`;
         tooltip.classList.remove('hidden');
       });
