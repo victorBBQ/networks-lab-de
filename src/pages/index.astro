@@ -136,6 +136,55 @@ import Hint from "../components/Hint.astro";
           </p>
         </header>
 
+        <section id="escenario" class="mb-32">
+          <h2
+            class="mb-8 pl-4
+              text-3xl font-bold text-white
+              border-l-4 border-blue-500
+              uppercase"
+          >
+            00. Escenario del Proyecto (Firma ABC)
+          </h2>
+          
+          <div class="grid gap-6 md:grid-cols-2">
+            <div class="p-8 bg-slate-900/50 rounded-3xl border border-white/5 shadow-2xl">
+              <h3 class="mb-4 text-lg font-bold text-blue-400 uppercase italic">Requerimientos del Cliente:</h3>
+              <ul class="space-y-3 text-sm text-slate-400 italic">
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-500 font-bold">»</span>
+                  <span><strong>Infraestructura:</strong> 200 empleados distribuidos en dos edificios (West/Ost) con 2 plantas funcionales (Pisos 4 y 6).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-500 font-bold">»</span>
+                  <span><strong>Diseño:</strong> Arquitectura <span class="text-white font-mono">Collapsed Core</span> para soportar expansión futura (Piso 5 y Edificio 3).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-500 font-bold">»</span>
+                  <span><strong>Conectividad:</strong> Redundancia ISP mediante 2 routers y Gateways virtuales vía <span class="text-white font-mono">HSRP</span>.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="p-8 bg-blue-900/10 rounded-3xl border border-blue-500/20 shadow-2xl">
+              <h3 class="mb-4 text-lg font-bold text-blue-400 uppercase italic">Especificaciones Técnicas:</h3>
+              <ul class="space-y-3 text-sm text-slate-400 italic">
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-500 font-bold">»</span>
+                  <span><strong>Normativa:</strong> Cableado estructurado certificado bajo la norma europea <span class="text-white">EN50173</span>.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-500 font-bold">»</span>
+                  <span><strong>WAN Provisoria:</strong> Testing de salida a Internet configurado en el rango <span class="text-white font-mono">192.168.18.0 /24</span>.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="text-blue-500 font-bold">»</span>
+                  <span><strong>Seguridad:</strong> Segmentación en 10 zonas mediante VLANs y control de acceso SSH.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
         <section id="diseno" class="mb-32">
           <h2
             class="mb-8 pl-4
@@ -1306,7 +1355,7 @@ ip ssh version 2</pre>
                       <p>interface f0/2 (ejemplo)</p>
                       <p class="pl-4
                           italic">
-                        ip address [IP_Pública] [Máscara]
+                        ip address 192.168.18.1 255.255.255.0
                       </p>
                       <p
                         class="pl-4
@@ -1432,7 +1481,7 @@ ip ssh version 2</pre>
                       <p>interface f0/2 (ejemplo)</p>
                       <p class="pl-4
                           italic">
-                        ip address [IP_Pública_R2] [Máscara]
+                        ip address 192.168.18.2 255.255.255.0
                       </p>
                       <p
                         class="pl-4
@@ -1852,6 +1901,41 @@ ip ssh version 2</pre>
               </div>
             </div>
           </div>
+
+<div class="mt-8 p-8 bg-slate-900 border border-white/10 rounded-[2.5rem] lg:col-span-3">
+  <h3 class="mb-6 text-xl font-black text-white tracking-tighter uppercase italic text-center">
+    Escenario: <span class="text-blue-500">Doble ISP Independiente</span> (West & Ost)
+  </h3>
+
+  <div class="grid gap-8 md:grid-cols-2">
+    <div class="p-6 bg-black/40 rounded-2xl border border-blue-500/20">
+      <h4 class="text-xs font-bold text-blue-400 uppercase mb-4 italic">ISP West (Conectado a R1)</h4>
+      <div class="font-mono text-[12px] text-blue-100 space-y-2">
+        <p>interface gig0/0</p>
+        <p class="pl-4 italic">ip address 192.168.18.254 255.255.255.0</p>
+        <p class="text-slate-500">// Retorno exclusivo a R1</p>
+        <p>ip route 10.0.0.0 255.255.0.0 192.168.18.1</p>
+      </div>
+    </div>
+
+    <div class="p-6 bg-black/40 rounded-2xl border border-pink-500/20">
+      <h4 class="text-xs font-bold text-pink-400 uppercase mb-4 italic">ISP Ost (Conectado a R2)</h4>
+      <div class="font-mono text-[12px] text-blue-100 space-y-2">
+        <p>interface gig0/0</p>
+        <p class="pl-4 italic">ip address 192.168.18.254 255.255.255.0</p>
+        <p class="text-slate-500">// Retorno exclusivo a R2</p>
+        <p>ip route 10.0.0.0 255.255.0.0 192.168.18.2</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8 p-6 bg-blue-900/10 rounded-2xl border-l-4 border-blue-500 italic">
+    <p class="text-sm text-slate-400 leading-relaxed">
+      <strong class="text-white uppercase">¿Cómo se logra el salto entre edificios?</strong><br/>
+      Si el cable del ISP West se corta, el <span class="text-white font-mono text-xs italic">Router 1</span> detecta que su interfaz WAN está "Down". Al no tener ruta de salida, deja de anunciar la ruta por defecto a través de <span class="text-blue-400 font-bold">RIP v2</span>. En ese instante, los switches del West aprenden vía RIP que la única salida válida es ahora el <span class="text-pink-400 font-bold">Router 2</span>. El tráfico viajará por el EtherChannel y saldrá por el edificio Ost de forma transparente.
+    </p>
+  </div>
+</div>
         </section>
 
         <footer
@@ -1934,8 +2018,8 @@ ip ssh version 2</pre>
     "router rip": "Se implementa para que la red sea autónoma; si un enlace se cae, los routers calculan una ruta alternativa en segundos sin intervención humana.",
     "version 2": "Es obligatoria para redes modernas porque permite VLSM (subredes de distinto tamaño), lo que evita el desperdicio masivo de direcciones IP que ocurría en la versión 1.",
     "network 10.0.0.0": "Agrupa toda la infraestructura bajo un solo anuncio; permite que cualquier VLAN nueva que crees sea conocida por el resto de la red automáticamente.",
-    "default-information originate (Aplicar solo en Routers)": "Evita tener que configurar rutas manualmente en cada switch; el router 'le cuenta' a toda la red interna que él es la salida oficial a Internet.",
-    "no auto-summary": "Vital para que la red no colapse; impide que RIP confunda la VLAN 12 con la 22 al intentar resumirlas, permitiendo que cada edificio mantenga su identidad.",
+    "default-information originate (Aplicar solo en Routers)": "Permite que el router comparta su conexión a Internet con el resto de la red. Si este router pierde su ISP, dejará de enviar este mensaje y el tráfico se desviará automáticamente al router del otro edificio.",
+    "ip route 10.0.0.0 255.255.0.0 192.168.18.1": "Es una ruta de retorno necesaria en el router del ISP; sin ella, el Internet sabe cómo llegar a tu empresa pero los paquetes no sabrían cómo volver a entrar.",    "no auto-summary": "Vital para que la red no colapse; impide que RIP confunda la VLAN 12 con la 22 al intentar resumirlas, permitiendo que cada edificio mantenga su identidad.",
     
     // RUTAS ESTÁTICAS Y RESPALDOS
     "ip route 10.0.22.0 255.255.255.0 10.0.99.2": "Establece un 'atajo' directo entre edificios a través del EtherChannel; así el tráfico local no tiene que subir hasta los routers de internet, optimizando la velocidad.",
