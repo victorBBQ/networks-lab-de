@@ -42,6 +42,12 @@ import "../styles/global.css";
             uppercase"
         >
           <a
+            href="#escenario"
+            class="block
+              hover:text-blue-400 transition"
+            >00. Escenario</a
+          >
+          <a
             href="#diseno"
             class="block
               hover:text-blue-400 transition"
@@ -393,6 +399,13 @@ import "../styles/global.css";
               <p class="pl-4">exit</p>
               <br />
               <p>logging buffered 8192</p>
+              <p class="text-orange-400/80 italic text-[13px] mb-1">
+              // Nota: En Edificio Ost, invertir el orden (Primero Server Ost, luego West)
+              </p>
+              <p>logging host [IP Servidor West]</p> 
+              <p>logging host [IP Servidor Ost]</p> 
+              <p>logging trap debugging</p>
+              <p>logging source-interface vlan 8</p>
               <p>crypto key generate rsa</p>
               <p>ip ssh version 2</p>
             </div>
@@ -717,10 +730,7 @@ import "../styles/global.css";
                       <p class="pl-4">exit</p>
                     </div>
                     <div>
-                      <p class="text-slate-500
-                          italic">
-                        // VLAN 22 & 23 (Respaldos Ost)
-                      </p>
+                      <p class="text-slate-500 italic"> // VLAN 22 & 23 (Respaldos Ost)</p>
                       <p class="text-pink-400">interface vlan 22</p>
                       <p class="pl-4">ip address 10.2.22.3 255.255.255.0</p>
                       <p class="pl-4">standby 22 ip 10.2.22.1</p>
@@ -737,6 +747,7 @@ import "../styles/global.css";
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>                      
                       <br />
+                      <p class="text-slate-500 italic"> // Red interna de gestión</p>
                       <p class="text-blue-400">interface vlan 8 <span class="text-black/40">h</span></p>
                       <p class="pl-4">ip address 10.0.8.2 255.255.255.0</p>
                       <p class="pl-4">standby 8 ip 10.0.8.1</p>
@@ -744,36 +755,54 @@ import "../styles/global.css";
                       <p class="pl-4">standby 8 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
+                      <br />
+                      <p class="text-slate-500 italic"> // Red interna de servidores</p>
+                      <p class="text-emerald-400">interface vlan 99</p>
+                      <p class="pl-4 italic">ip address 10.0.99.2 255.255.255.0</p>
+                      <p class="pl-4">standby 99 ip 10.0.99.1</p>
+                      <p class="pl-4">standby 99 priority 110</p>
+                      <p class="pl-4">standby 99 preempt</p>
+                      <p class="pl-4">no shut</p>
+                      <p class="pl-4">exit</p>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <p
-                    class="mb-2
-                      text-emerald-400 font-bold tracking-widest
-                      uppercase italic underline decoration-emerald-500/30"
-                  >
-                    // VLAN 99 y Seguridad Server
+                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">
+                    // Seguridad y Políticas de Aislamiento (ACL)
                   </p>
-                  <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm">
-                    <p class="text-emerald-400">interface vlan 99</p>
-                    <p class="pl-4 italic">ip address 10.0.99.2 255.255.255.0</p>
-                    <p class="pl-4">standby 99 ip 10.0.99.1</p>
-                    <p class="pl-4">standby 99 priority 110</p>
-                    <p class="pl-4">standby 99 preempt</p>
-                    <p class="pl-4">no shut</p>
-                    <p class="pl-4">exit</p>
-                    <br />
-                    <p>ip access-list extended SERVER_SECURITY</p>
-                    <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
-                    <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
-                    <p class="pl-4">permit ip any any</p>
-                    <p class="pl-4">exit</p>
-                    <br />
-                    <p>interface vlan 99</p>
-                    <p class="pl-4">ip access-group SERVER_SECURITY out</p>
-                    <p class="pl-4">exit</p>
+                  <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm space-y-4">
+                    <div>
+                      <p class="text-slate-500 italic">// 1. Protección del Centro de Datos</p>
+                      <p>ip access-list extended SERVER_SECURITY</p>
+                      <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
+                      <p class="pl-4">permit ip any any</p>
+                      <p>exit</p>
+                      <br />
+                      <p>interface vlan 99</p>
+                      <p class="pl-4">ip access-group SERVER_SECURITY out</p>
+                    </div>
+
+                    <div>
+                      <p class="text-slate-500 italic">// Aislamiento entre Edificios y entre VLANs</p>
+                      <p>ip access-list extended ACL_WEST</p>
+                      <p class="pl-4">deny ip 10.1.0.0 0.0.255.255 10.0.8.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.1.0.0 0.0.255.255 10.0.99.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.1.0.0 0.0.255.255 10.2.0.0 0.0.255.255</p>
+
+                      <p class="pl-4">deny ip 10.1.12.0 0.0.0.255 10.1.13.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.1.13.0 0.0.0.255 10.1.12.0 0.0.0.255</p>
+                      <p class="pl-4">permit ip any any</p>
+                      <p>exit</p>
+                      <br />
+                      <p class="text-slate-500 italic">// Aplicación en redes de usuarios West</p>
+                      <p>interface vlan 12</p>
+                      <p class="pl-4">ip access-group ACL_WEST in</p>
+                      <p>interface vlan 13</p>
+                      <p class="pl-4">ip access-group ACL_WEST in</p>
+                    </div>
                   </div>
                 </div>
 
@@ -959,6 +988,7 @@ import "../styles/global.css";
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
+                      <p class="text-slate-500 italic"> // Red interna de gestión</p>
                       <p class="text-blue-400">interface vlan 8 <span class="text-black/40">h</span></p>
                       <p class="pl-4">ip address 10.0.8.3 255.255.255.0</p>
                       <p class="pl-4">standby 8 ip 10.0.8.1</p>
@@ -966,36 +996,54 @@ import "../styles/global.css";
                       <p class="pl-4">standby 8 preempt</p>
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
+                      <br />
+                      <p class="text-slate-500 italic"> // Red interna de servidores</p>
+                      <p class="text-emerald-400">interface vlan 99</p>
+                      <p class="pl-4 italic">ip address 10.0.99.3 255.255.255.0</p>
+                      <p class="pl-4">standby 99 ip 10.0.99.1</p>
+                      <p class="pl-4">standby 99 priority 100</p>
+                      <p class="pl-4">standby 99 preempt</p>
+                      <p class="pl-4">no shut</p>
+                      <p class="pl-4">exit</p>
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <p
-                    class="mb-2
-                      text-emerald-400 font-bold tracking-widest
-                      uppercase italic underline decoration-emerald-500/30"
-                  >
-                    // VLAN 99 y Seguridad Server
+                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">
+                    // Seguridad y Políticas de Aislamiento (ACL)
                   </p>
-                  <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm">
-                    <p class="text-emerald-400">interface vlan 99</p>
-                    <p class="pl-4 italic">ip address 10.0.99.3 255.255.255.0</p>
-                    <p class="pl-4">standby 99 ip 10.0.99.1</p>
-                    <p class="pl-4">standby 99 priority 100</p>
-                    <p class="pl-4">standby 99 preempt</p>
-                    <p class="pl-4">no shut</p>
-                    <p class="pl-4">exit</p>
-                    <br />
-                    <p>ip access-list extended SERVER_SECURITY</p>
-                    <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
-                    <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
-                    <p class="pl-4">permit ip any any</p>
-                    <p class="pl-4">exit</p>
-                    <br />
-                    <p>interface vlan 99</p>
-                    <p class="pl-4">ip access-group SERVER_SECURITY out</p>
-                    <p class="pl-4">exit</p>
+                  <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm space-y-4">
+                    <div>
+                      <p class="text-slate-500 italic">// 1. Protección del Centro de Datos</p>
+                      <p>ip access-list extended SERVER_SECURITY</p>
+                      <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
+                      <p class="pl-4">permit ip any any</p>
+                      <p>exit</p>
+                      <br />
+                      <p>interface vlan 99</p>
+                      <p class="pl-4">ip access-group SERVER_SECURITY out</p>
+                    </div>
+
+                    <div>
+                      <p class="text-slate-500 italic">// Aislamiento entre Edificios y entre VLANs</p>
+                      <p>ip access-list extended ACL_OST</p>
+                      <p class="pl-4">deny ip 10.2.0.0 0.0.255.255 10.0.8.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.2.0.0 0.0.255.255 10.0.99.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.2.0.0 0.0.255.255 10.1.0.0 0.0.255.255</p>
+
+                      <p class="pl-4">deny ip 10.2.22.0 0.0.0.255 10.2.23.0 0.0.0.255</p>
+                      <p class="pl-4">deny ip 10.2.23.0 0.0.0.255 10.2.22.0 0.0.0.255</p>
+                      <p class="pl-4">permit ip any any</p>
+                      <p>exit</p>
+                      <br />
+                      <p class="text-slate-500 italic">// Aplicación en redes de usuarios Ost</p>
+                      <p>interface vlan 22</p>
+                      <p class="pl-4">ip access-group ACL_OST in</p>
+                      <p>interface vlan 23</p>
+                      <p class="pl-4">ip access-group ACL_OST in</p>
+                    </div>
                   </div>
                 </div>
 
@@ -1983,6 +2031,10 @@ import "../styles/global.css";
 
     // GESTIÓN DE LÍNEAS Y LOGS
     "logging buffered 8192": "Reserva espacio en la RAM para guardar eventos y errores del sistema, permitiendo revisar fallas pasadas sin servidores externos.",
+    "logging host [IP Servidor West]": "Establece el servidor del edificio West como destino. Se configura como primero en la lista en los dispositivos del West para asegurar que los logs se guarden localmente por velocidad y eficiencia.",
+    "logging host [IP Servidor Ost]": "Establece el servidor del edificio Ost como destino. Actúa como servidor principal para el edificio Ost y como respaldo (Failover) para los dispositivos del West.",   
+    "logging trap debugging": "Ajusta el nivel de logs al máximo detalle posible, permitiendo rastrear hasta el más mínimo cambio o error en el sistema.",
+    "logging source-interface vlan 8": "Fuerza al switch a enviar los logs usando su identidad de la red de Gestión (VLAN 8), permitiendo que el tráfico atraviese las ACL de seguridad del Centro de Datos.",
     "logging synchronous": "Organiza los mensajes del sistema para que no se mezclen con lo que estás escribiendo, manteniendo la consola legible.",
     "exec-timeout 0 0": "Desactiva el cierre automático de sesión por inactividad; ideal para entornos de laboratorio donde se requiere conexión constante.",
 
@@ -2031,10 +2083,32 @@ import "../styles/global.css";
 
 
     // ACL SEGURIDAD SERVIDORES
-    "ip access-list extended SERVER_SECURITY": "Define un filtro granular para proteger los servidores; evita que usuarios comunes vean datos sensibles, permitiendo solo a los administradores.",
-    "permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255": "Garantiza que solo el personal de Gestión (VLAN 8) pueda entrar a configurar o dar mantenimiento a los servidores.",
-    "deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255": "Bloquea proactivamente a todos los demás edificios y usuarios de la red para que no puedan atacar o acceder a los servidores.",
+    "ip access-list extended SERVER_SECURITY": "Inicia la lista de control de acceso para blindar el Centro de Datos. Su objetivo es filtrar quién puede entrar a la zona de servidores.",
+    "permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255": "Permite que solo la red de Gestión (VLAN 8) acceda a los servidores para tareas de administración y envío de logs (Syslog).",
+    "deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255": "Bloquea proactivamente cualquier intento de acceso a los servidores desde cualquier otra red interna (VLANs de usuarios).",
     "permit ip any any": "Línea vital que permite que el tráfico general (como la navegación a Internet) siga funcionando después de haber filtrado el acceso a los servidores.",
+
+    // ACL AISLAMIENTO (WEST/OST)
+    "ip access-list extended ACL_WEST": "Define la política de salida para el Edificio West. Controla qué destinos tienen permitidos los empleados de este edificio.",
+    "ip access-list extended ACL_OST": "Define la política de salida para el Edificio Ost. Controla qué destinos tienen permitidos los empleados de este edificio.",
+    "deny ip 10.1.0.0 0.0.255.255 10.2.0.0 0.0.255.255": "Regla de aislamiento: impide que los usuarios del West se comuniquen con el edificio Ost.",
+    "deny ip 10.2.0.0 0.0.255.255 10.1.0.0 0.0.255.255": "Regla de aislamiento: impide que los usuarios del Ost se comuniquen con el edificio West.",
+    "deny ip 10.1.0.0 0.0.255.255 10.0.8.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes intenten saltar a la red de gestión administrativa.",
+    "deny ip 10.2.0.0 0.0.255.255 10.0.8.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes intenten saltar a la red de gestión administrativa.",
+    "deny ip 10.1.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes conectarse a los servidores.",
+    "deny ip 10.2.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes conectarse a los servidores.",
+
+    "deny ip 10.1.12.0 0.0.0.255 10.1.13.0 0.0.0.255": "Política de Micro-segmentación: impide que los usuarios de la VLAN 12 accedan a los recursos de la VLAN 13, limitando el radio de infección en caso de ataques.",
+    "deny ip 10.1.13.0 0.0.0.255 10.1.12.0 0.0.0.255": "Garantiza la bidireccionalidad del bloqueo anterior; asegura que el tráfico de la VLAN 13 sea descartado si intenta entrar en la red de la VLAN 12.",
+
+    "deny ip 10.2.22.0 0.0.0.255 10.2.23.0 0.0.0.255": "Política de Micro-segmentación: impide que los usuarios de la VLAN 22 accedan a los recursos de la VLAN 23, limitando el radio de infección en caso de ataques.",
+    "deny ip 10.2.23.0 0.0.0.255 10.2.22.0 0.0.0.255": "Garantiza la bidireccionalidad del bloqueo anterior; asegura que el tráfico de la VLAN 23 sea descartado si intenta entrar en la red de la VLAN 22.",
+
+
+    // APLICACIÓN
+    "ip access-group SERVER_SECURITY out": "Aplica el filtro a la salida de la interfaz. El switch revisa los paquetes justo antes de entregarlos a los servidores.",
+    "ip access-group ACL_WEST in": "Aplica el filtro a la entrada de la interfaz. Bloquea el tráfico no deseado en el momento exacto en que sale de la laptop del usuario.",
+    "ip access-group ACL_OST in": "Aplica el filtro a la entrada de la interfaz. Bloquea el tráfico no deseado en el momento exacto en que sale de la laptop del usuario.",
 
     // ETHERCHANNEL (LACP)
     "channel-group 1 mode active": "Agrupa dos cables físicos Gigabit en un solo canal lógico de 2Gbps, aumentando el ancho de banda y eliminando cuellos de botella entre edificios.",
