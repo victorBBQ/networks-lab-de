@@ -6,7 +6,6 @@
 }
 
 body {
-  @apply bg-[#050a14] text-slate-300 antialiased;
   font-family: 'Inter', sans-serif;
 }
 
