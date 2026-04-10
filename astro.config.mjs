@@ -5,7 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://victorBBQ.github.io',
-  base: '/networks-lab',
+  base: '/networks-lab-de',
   vite: {
     plugins: [tailwindcss()],
   },

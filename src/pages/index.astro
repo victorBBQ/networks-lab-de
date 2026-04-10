@@ -2,11 +2,11 @@
 import "../styles/global.css";
 ---
 
-<html lang="es" class="scroll-smooth">
+<html lang="de" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Guía de Redes | Cisco Lab</title>
+    <title>Netzwerk-Leitfaden | Cisco Lab</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700;900&display=swap"
       rel="stylesheet"
@@ -45,49 +45,49 @@ import "../styles/global.css";
             href="#escenario"
             class="block
               hover:text-blue-400 transition"
-            >00. Escenario</a
+            >00. Szenario</a
           >
           <a
             href="#diseno"
             class="block
               hover:text-blue-400 transition"
-            >01. Diseño e IPs</a
+            >01. Design & IPs</a
           >
           <a
             href="#seguridad"
             class="block
               hover:text-blue-400 transition"
-            >02. Seguridad</a
+            >02. Sicherheit</a
           >
           <a
             href="#acceso"
             class="block
               hover:text-blue-400 transition"
-            >03. Acceso L2</a
+            >03. Access-Switch (L2)</a
           >
           <a
             href="#nucleo"
             class="block
               hover:text-blue-400 transition"
-            >04. Núcleo L3</a
+            >04. Core-Switch (L3)</a
           >
           <a
             href="#dinamico"
             class="block
               hover:text-blue-400 transitio"
-            >05. Enrutamiento Dinámico</a
+            >05. Dynamisches Routing</a
           >
           <a
             href="#estatico"
             class="block
               hover:text-blue-400 transitio"
-            >06. Enrutamiento Estático</a
+            >06. Statisches Routing</a
           >
           <a
             href="#routers"
             class="block
               hover:text-blue-400 transitio"
-            >07. Routers/NAT</a
+            >07. Router/NAT</a
           >
           <a
             href="#wlan"
@@ -111,7 +111,7 @@ import "../styles/global.css";
                   border border-blue-400/20
                   rounded hover:bg-blue-400/10 transition uppercase"
             >
-              Verificación
+              Verifizierung
             </a>
           </div>
         </nav>
@@ -129,15 +129,15 @@ import "../styles/global.css";
               text-6xl font-black text-white tracking-tighter leading-none
               md:text-8xl"
           >
-            Guía de <span class="text-blue-500">Redes</span>
+            Netzwerk <span class="text-blue-500">Leitfaden</span>
           </h1>
           <p
             class="max-w-2xl
               text-xl text-slate-400
               italic"
           >
-            Configuración integral paso a paso para edificios West y Ost. Red
-            Global: <span class="text-blue-400 font-mono">10.G.V.X /8</span>
+            Vollständige Schritt-für-Schritt-Konfiguration für Gebäude West und Ost. Globales Netz: 
+            <span class="text-blue-400 font-mono">10.G.V.X /8</span>
           </p>
         </header>
 
@@ -148,42 +148,42 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            00. Escenario del Proyecto (Firma ABC)
+            00. Projektszenario (Firma ABC)
           </h2>
           
           <div class="grid gap-6 md:grid-cols-2">
             <div class="p-8 bg-slate-900/50 rounded-3xl border border-white/5 shadow-2xl">
-              <h3 class="mb-4 text-lg font-bold text-blue-400 uppercase italic">Requerimientos del Cliente:</h3>
+              <h3 class="mb-4 text-lg font-bold text-blue-400 uppercase italic">Kundenanforderungen:</h3>
               <ul class="space-y-3 text-sm text-slate-400 italic">
                 <li class="flex items-start gap-3">
                   <span class="text-blue-500 font-bold">»</span>
-                  <span><strong>Infraestructura:</strong> 200 empleados distribuidos en dos edificios (West/Ost) con 2 plantas funcionales (Pisos 4 y 6).</span>
+                  <span><strong>Infrastruktur:</strong> 200 Mitarbeiter verteilt auf zwei Gebäude (West/Ost) mit 2 Funktionsebenen (Etage 4 und 6).</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-blue-500 font-bold">»</span>
-                  <span><strong>Diseño:</strong> Arquitectura <span class="text-white font-mono">Collapsed Core</span> para soportar expansión futura (Piso 5 y Edificio 3).</span>
+                  <span><strong>Design:</strong> <span class="text-white font-mono">Collapsed Core</span> Architektur zur Unterstützung künftiger Erweiterungen (Etage 5 und Gebäude 3).</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-blue-500 font-bold">»</span>
-                  <span><strong>Conectividad:</strong> Redundancia ISP mediante 2 routers y Gateways virtuales vía <span class="text-white font-mono">HSRP</span>.</span>
+                  <span><strong>Konnektivität:</strong> ISP-Redundanz über 2 Router und virtuelle Gateways mittels <span class="text-white font-mono">HSRP</span>.</span>
                 </li>
               </ul>
             </div>
 
             <div class="p-8 bg-blue-900/10 rounded-3xl border border-blue-500/20 shadow-2xl">
-              <h3 class="mb-4 text-lg font-bold text-blue-400 uppercase italic">Especificaciones Técnicas:</h3>
+              <h3 class="mb-4 text-lg font-bold text-blue-400 uppercase italic">Technische Spezifikationen:</h3>
               <ul class="space-y-3 text-sm text-slate-400 italic">
                 <li class="flex items-start gap-3">
                   <span class="text-blue-500 font-bold">»</span>
-                  <span><strong>Normativa:</strong> Cableado estructurado certificado bajo la norma europea <span class="text-white">EN50173</span>.</span>
+                  <span><strong>Normung:</strong> Zertifizierte strukturierte Verkabelung nach europäischer Norm <span class="text-white">EN50173</span>.</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-blue-500 font-bold">»</span>
-                  <span><strong>WAN Provisoria:</strong> Testing de salida a Internet configurado en el rango <span class="text-white font-mono">192.168.18.0 /24</span>.</span>
+                  <span><strong>Provisorisches WAN:</strong> Internet-Ausgangstest im Bereich <span class="text-white font-mono">192.168.18.0 /24</span> konfiguriert.</span>
                 </li>
                 <li class="flex items-start gap-3">
                   <span class="text-blue-500 font-bold">»</span>
-                  <span><strong>Seguridad:</strong> Segmentación en 10 zonas mediante VLANs y control de acceso SSH.</span>
+                  <span><strong>Sicherheit:</strong> Segmentierung in 10 Zonen über VLANs und SSH-Zugriffskontrolle.</span>
                 </li>
               </ul>
             </div>
@@ -197,7 +197,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            01. Diseño Físico y Direccionamiento
+            01. Physisches Design und Adressierung
           </h2>
 
           <div
@@ -240,7 +240,7 @@ import "../styles/global.css";
                 class="font-bold text-red-100
                   uppercase italic"
               >
-                Edificio West
+                Gebäude West
               </p>
             </div>
             <div
@@ -259,7 +259,7 @@ import "../styles/global.css";
                 class="font-bold text-pink-100
                   uppercase italic"
               >
-                Edificio Ost
+                Gebäude Ost
               </p>
             </div>
             <div
@@ -278,7 +278,7 @@ import "../styles/global.css";
                 class="font-bold text-emerald-100
                   uppercase italic"
               >
-                Servidores
+                Server
               </p>
             </div>
           </div>
@@ -293,7 +293,7 @@ import "../styles/global.css";
                 text-lg font-bold text-blue-400
                 uppercase italic"
             >
-              Especificaciones Core:
+              Core-Spezifikationen:
             </h3>
             <ul
               class="space-y-3
@@ -307,9 +307,9 @@ import "../styles/global.css";
                     bg-blue-500
                     rounded-full"
                 ></span>
-                <strong>Puertos Core:</strong> Uso exclusivo de <span
+                <strong>Core-Ports:</strong> Exklusive Nutzung von <span
                   class="text-white font-mono">GigabitEthernet</span
-                > para interconexión entre Switches 3560 y Routers.
+                > für die Verbindung zwischen 3560 Switches und Routern.
               </li>
               <li class="flex
                   items-center gap-3">
@@ -318,9 +318,9 @@ import "../styles/global.css";
                     bg-blue-500
                     rounded-full"
                 ></span>
-                <strong>Puertos Acceso:</strong> Uso de <span
+                <strong>Access-Ports:</strong> Nutzung von <span
                   class="text-white font-mono">FastEthernet</span
-                > para Laptops y Switches 2960.
+                > für Laptops und 2960 Switches.
               </li>
             </ul>
           </div>
@@ -334,7 +334,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            02. Configuración Base y Seguridad (Todos)
+            02. Basiskonfiguration und Sicherheit (Alle)
           </h2>
           <div
             class="overflow-hidden
@@ -400,7 +400,7 @@ import "../styles/global.css";
               <br />
               <p>logging buffered 8192</p>
               <p class="text-orange-400/80 italic text-[13px] mb-1">
-              // Nota: En Edificio Ost, invertir el orden (Primero Server Ost, luego West)
+              // Hinweis: In Gebäude Ost die Reihenfolge umkehren (Zuerst Server Ost, dann West)
               </p>
               <p>logging host [IP Servidor West]</p> 
               <p>logging host [IP Servidor Ost]</p> 
@@ -419,7 +419,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            03. Configuración de Switches de Acceso (2960 - L2)
+            03. Konfiguration der Access-Switches (2960 - L2)
           </h2>
 
           <div class="grid
@@ -449,7 +449,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Creación VLANs
+                    // VLAN-Erstellung
                   </p>
                   <div
                     class="overflow-x-auto
@@ -469,7 +469,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Seguridad de Puertos
+                    // Port-Sicherheit
                   </p>
                   <div
                     class="p-4
@@ -500,7 +500,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Enlaces Troncales y Gestión
+                    // Trunk-Links und Management
                   </p>
                   <div
                     class="p-4
@@ -557,7 +557,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Creación VLANs
+                    // VLAN-Erstellung
                   </p>
                   <div
                     class="p-4
@@ -576,7 +576,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Seguridad de Puertos
+                    // Port-Sicherheit
                   </p>
                   <div
                     class="p-4
@@ -607,7 +607,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Enlaces Troncales y Gestión
+                    // Trunk-Links und Management
                   </p>
                   <div
                     class="p-4
@@ -645,7 +645,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            04. Configuración del Núcleo (3560 - Capa 3)
+            04. Core-Konfiguration (3560 - Layer 3)
           </h2>
 
           <div class="grid
@@ -675,7 +675,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Activación L3 y VLANs
+                    // L3-Aktivierung und VLANs
                   </p>
                   <div
                     class="p-4
@@ -689,7 +689,7 @@ import "../styles/global.css";
                       class="text-slate-500 font-sans
                         italic"
                     >
-                      // Crear también vlan 12, 13, 22, 23, 99
+                      // Ebenfalls vlan 12, 13, 22, 23, 99 erstellen
                     </p>
                   </div>
                 </div>
@@ -700,7 +700,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Gateways (SVIs) y HSRP (Hot Standby Router Protocol)
+                    // Gateways (SVIs) und HSRP (Hot Standby Router Protocol)
                   </p>
                   <div
                     class="p-4 space-y-4
@@ -711,7 +711,7 @@ import "../styles/global.css";
                     <div>
                       <p class="text-slate-500
                           italic">
-                        // VLAN 12 & 13 (Principales en West - G=1)
+                        // VLAN 12 & 13 (Haupt-VLANs West - G=1)
                       </p>
                       <p class="text-red-400">interface vlan 12</p>
                       <p class="pl-4">ip address 10.1.12.2 255.255.255.0</p>
@@ -730,7 +730,7 @@ import "../styles/global.css";
                       <p class="pl-4">exit</p>
                     </div>
                     <div>
-                      <p class="text-slate-500 italic"> // VLAN 22 & 23 (Respaldos Ost)</p>
+                      <p class="text-slate-500 italic"> // VLAN 22 & 23 (Backup Ost)</p>
                       <p class="text-pink-400">interface vlan 22</p>
                       <p class="pl-4">ip address 10.2.22.3 255.255.255.0</p>
                       <p class="pl-4">standby 22 ip 10.2.22.1</p>
@@ -747,7 +747,7 @@ import "../styles/global.css";
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>                      
                       <br />
-                      <p class="text-slate-500 italic"> // Red interna de gestión</p>
+                      <p class="text-slate-500 italic"> // Internes Management-Netz</p>
                       <p class="text-blue-400">interface vlan 8 <span class="text-black/40">h</span></p>
                       <p class="pl-4">ip address 10.0.8.2 255.255.255.0</p>
                       <p class="pl-4">standby 8 ip 10.0.8.1</p>
@@ -756,7 +756,7 @@ import "../styles/global.css";
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
-                      <p class="text-slate-500 italic"> // Red interna de servidores</p>
+                      <p class="text-slate-500 italic"> // Internes Server-Netz</p>
                       <p class="text-emerald-400">interface vlan 99</p>
                       <p class="pl-4 italic">ip address 10.0.99.2 255.255.255.0</p>
                       <p class="pl-4">standby 99 ip 10.0.99.1</p>
@@ -770,11 +770,11 @@ import "../styles/global.css";
 
                 <div>
                   <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">
-                    // Seguridad y Políticas de Aislamiento (ACL)
+                    // Sicherheit und Isolationsrichtlinien (ACL)
                   </p>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm space-y-4">
                     <div>
-                      <p class="text-slate-500 italic">// 1. Protección del Centro de Datos</p>
+                      <p class="text-slate-500 italic">// 1. Schutz des Rechenzentrums</p>
                       <p>ip access-list extended SERVER_SECURITY</p>
                       <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
                       <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
@@ -786,7 +786,7 @@ import "../styles/global.css";
                     </div>
 
                     <div>
-                      <p class="text-slate-500 italic">// Aislamiento entre Edificios y entre VLANs</p>
+                      <p class="text-slate-500 italic">// Isolation zwischen Gebäuden und VLANs</p>
                       <p>ip access-list extended ACL_WEST</p>
                       <p class="pl-4">deny ip 10.1.0.0 0.0.255.255 10.0.8.0 0.0.0.255</p>
                       <p class="pl-4">deny ip 10.1.0.0 0.0.255.255 10.0.99.0 0.0.0.255</p>
@@ -797,7 +797,7 @@ import "../styles/global.css";
                       <p class="pl-4">permit ip any any</p>
                       <p>exit</p>
                       <br />
-                      <p class="text-slate-500 italic">// Aplicación en redes de usuarios West</p>
+                      <p class="text-slate-500 italic">// Anwendung in West-Benutzernetzen</p>
                       <p>interface vlan 12</p>
                       <p class="pl-4">ip access-group ACL_WEST in</p>
                       <p>interface vlan 13</p>
@@ -812,11 +812,11 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Etherchannel y Enlaces Core
+                    // Etherchannel und Core-Links
                   </p>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 text-sm" >
-                    <p class="text-slate-500 italic"> // Enlace entre Edificios</p>
-                    <p>interface range gig0/1-2 (example)</p>
+                    <p class="text-slate-500 italic"> // Verbindung zwischen Gebäuden</p>
+                    <p>interface range gig0/1-2 (Beispiel)</p>
                     <p class="pl-4"> channel-group 1 mode active </p>
                     <p class="pl-4">exit</p>
                     <br/>
@@ -825,15 +825,15 @@ import "../styles/global.css";
                     <p class="pl-4">exit</p>
 
                     <br />
-                    <p class="text-slate-500 italic"> // Hacia el Switch (EV-L)</p>
-                    <p>interface fa0/1 (example)</p>
+                    <p class="text-slate-500 italic"> // Zum Switch (EV-L)</p>
+                    <p>interface fa0/1 (Beispiel)</p>
                     <p class="pl-4">switchport trunk encapsulation dot1q</p>
                     <p class="pl-4">switchport mode trunk</p>
                     <p class="pl-4">no shut</p>
                     <p class="pl-4">exit</p>
                     <br/>
-                    <p class="text-slate-500 italic"> // Hacia Router 1</p>
-                    <p>interface gig0/3 (example)</p>
+                    <p class="text-slate-500 italic"> // Zu Router 1</p>
+                    <p>interface gig0/3 (Beispiel)</p>
                     <p class="pl-4">no switchport</p>
                     <p class="pl-4">ip address 10.1.1.2 255.255.255.252</p>
                     <p class="pl-4">no shut</p>
@@ -843,9 +843,9 @@ import "../styles/global.css";
                 </div>
 
                 <div>
-                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">// Configuración DHCP</p>
+                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">// DHCP-Konfiguration</p>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm">
-                    <p class="text-slate-500 italic"> // Exclusiones</p>
+                    <p class="text-slate-500 italic"> // Ausschlüsse</p>
                     <p>ip dhcp excluded-address 10.0.8.1 10.0.8.20</p>
                     <p>ip dhcp excluded-address 10.1.12.1 10.1.12.20</p>
                     <p>ip dhcp excluded-address 10.1.13.1 10.1.13.20</p>
@@ -853,7 +853,7 @@ import "../styles/global.css";
                     <p>ip dhcp excluded-address 10.2.23.1 10.2.23.20</p>
                     <br />
 
-                    <p class="text-slate-500 italic"> // POOLS de direcciones</p>
+                    <p class="text-slate-500 italic"> // Adress-Pools</p>
                     <p>ip dhcp pool POOL_V12_WEST_RED</p>
                     <p class="pl-4">network 10.1.12.0 255.255.255.0</p>
                     <p class="pl-4">default-router 10.1.12.1</p>
@@ -879,7 +879,7 @@ import "../styles/global.css";
                     <p class="pl-4">default-router 10.0.8.1</p>
                     <br />
 
-                    <p class="text-slate-500 italic"> // Configuración de Relay (IP  Helper)</p>
+                    <p class="text-slate-500 italic"> // Relay-Konfiguration (IP Helper)</p>
                     <p>interface vlan 8</p>
                     <p class="pl-4">ip helper-address 10.0.99.2</p>
                     <br />
@@ -924,7 +924,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Activación L3 y VLANs
+                    // L3-Aktivierung und VLANs
                   </p>
                   <div
                     class="p-4
@@ -938,7 +938,7 @@ import "../styles/global.css";
                       class="text-slate-500 font-sans
                         italic"
                     >
-                      // Crear también vlan 12, 13, 22, 23, 99
+                      // Ebenfalls vlan 12, 13, 22, 23, 99 erstellen
                     </p>
                   </div>
                 </div>
@@ -949,11 +949,11 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Gateways (SVIs) y HSRP (Hot Standby Router Protocol)
+                    // Gateways (SVIs) und HSRP (Hot Standby Router Protocol)
                   </p>
                   <div class="bg-black/40 p-4 rounded-xl border border-white/5 text-blue-100 space-y-4 text-sm">
                     <div>
-                      <p class="text-slate-500 italic">// VLAN 22 & 23 (Principales Ost - G=2)</p>
+                      <p class="text-slate-500 italic">// VLAN 22 & 23 (Haupt-VLANs Ost - G=2)</p>
                       <p class="text-pink-400">interface vlan 22</p>
                       <p class="pl-4">ip address 10.2.22.2 255.255.255.0</p>
                       <p class="pl-4">standby 22 ip 10.2.22.1</p>
@@ -971,7 +971,7 @@ import "../styles/global.css";
                       <p class="pl-4">exit</p>
                     </div>
                     <div>
-                      <p class="text-slate-500 italic">// VLAN 12 & 13 (Respaldos West)</p>
+                      <p class="text-slate-500 italic">// VLAN 12 & 13 (Backup West)</p>
                       <p class="text-red-400" >interface vlan 12</p>
                       <p class="pl-4">ip address 10.1.12.3 255.255.255.0</p>
                       <p class="pl-4">standby 12 ip 10.1.12.1</p>
@@ -988,7 +988,7 @@ import "../styles/global.css";
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
-                      <p class="text-slate-500 italic"> // Red interna de gestión</p>
+                      <p class="text-slate-500 italic"> // Internes Management-Netz</p>
                       <p class="text-blue-400">interface vlan 8 <span class="text-black/40">h</span></p>
                       <p class="pl-4">ip address 10.0.8.3 255.255.255.0</p>
                       <p class="pl-4">standby 8 ip 10.0.8.1</p>
@@ -997,7 +997,7 @@ import "../styles/global.css";
                       <p class="pl-4">no shut</p>
                       <p class="pl-4">exit</p>
                       <br />
-                      <p class="text-slate-500 italic"> // Red interna de servidores</p>
+                      <p class="text-slate-500 italic"> // Internes Server-Netz</p>
                       <p class="text-emerald-400">interface vlan 99</p>
                       <p class="pl-4 italic">ip address 10.0.99.3 255.255.255.0</p>
                       <p class="pl-4">standby 99 ip 10.0.99.1</p>
@@ -1011,11 +1011,11 @@ import "../styles/global.css";
 
                 <div>
                   <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">
-                    // Seguridad y Políticas de Aislamiento (ACL)
+                    // Sicherheit und Isolationsrichtlinien (ACL)
                   </p>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm space-y-4">
                     <div>
-                      <p class="text-slate-500 italic">// 1. Protección del Centro de Datos</p>
+                      <p class="text-slate-500 italic">// 1. Schutz des Rechenzentrums</p>
                       <p>ip access-list extended SERVER_SECURITY</p>
                       <p class="pl-4">permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255</p>
                       <p class="pl-4">deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255</p>
@@ -1027,7 +1027,7 @@ import "../styles/global.css";
                     </div>
 
                     <div>
-                      <p class="text-slate-500 italic">// Aislamiento entre Edificios y entre VLANs</p>
+                      <p class="text-slate-500 italic">// Isolation zwischen Gebäuden und VLANs</p>
                       <p>ip access-list extended ACL_OST</p>
                       <p class="pl-4">deny ip 10.2.0.0 0.0.255.255 10.0.8.0 0.0.0.255</p>
                       <p class="pl-4">deny ip 10.2.0.0 0.0.255.255 10.0.99.0 0.0.0.255</p>
@@ -1038,7 +1038,7 @@ import "../styles/global.css";
                       <p class="pl-4">permit ip any any</p>
                       <p>exit</p>
                       <br />
-                      <p class="text-slate-500 italic">// Aplicación en redes de usuarios Ost</p>
+                      <p class="text-slate-500 italic">// Anwendung in Ost-Benutzernetzen</p>
                       <p>interface vlan 22</p>
                       <p class="pl-4">ip access-group ACL_OST in</p>
                       <p>interface vlan 23</p>
@@ -1048,10 +1048,10 @@ import "../styles/global.css";
                 </div>
 
                 <div>
-                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">// Etherchannel y Enlaces Core</p>
+                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">// Etherchannel und Core-Links</p>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 text-sm" >
-                    <p class="text-slate-500 italic"> // Enlace entre Edificios</p>
-                    <p>interface range gig0/1-2 (example)</p>
+                    <p class="text-slate-500 italic"> // Verbindung zwischen Gebäuden</p>
+                    <p>interface range gig0/1-2 (Beispiel)</p>
                     <p class="pl-4"> channel-group 1 mode active </p>
                     <p class="pl-4">exit</p>
                     <br/>
@@ -1060,15 +1060,15 @@ import "../styles/global.css";
                     <p class="pl-4">exit</p>
 
                     <br />
-                    <p class="text-slate-500 italic"> // Hacia el Switch (EV-R)</p>
-                    <p>interface fa0/1 (example)</p>
+                    <p class="text-slate-500 italic"> // Zum Switch (EV-R)</p>
+                    <p>interface fa0/1 (Beispiel)</p>
                     <p class="pl-4">switchport trunk encapsulation dot1q</p>
                     <p class="pl-4">switchport mode trunk</p>
                     <p class="pl-4">no shut</p>
                     <p class="pl-4">exit</p>
                     <br/>
-                    <p class="text-slate-500 italic"> // Hacia Router 2</p>
-                    <p>interface gig0/3 (example)</p>
+                    <p class="text-slate-500 italic"> // Zu Router 2</p>
+                    <p>interface gig0/3 (Beispiel)</p>
                     <p class="pl-4">no switchport</p>
                     <p class="pl-4">ip address 10.2.2.2 255.255.255.252</p>
                     <p class="pl-4">no shut</p>
@@ -1077,9 +1077,9 @@ import "../styles/global.css";
                 </div>
 
                 <div>
-                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">// Configuración DHCP</p>
+                  <p class="mb-2 text-emerald-400 font-bold tracking-widest uppercase italic underline decoration-emerald-500/30">// DHCP-Konfiguration</p>
                   <div class="p-4 text-blue-100 bg-black/40 rounded-xl border border-white/5 font-mono text-sm">
-                    <p class="text-slate-500 italic"> // Exclusiones</p>
+                    <p class="text-slate-500 italic"> // Ausschlüsse</p>
                     <p>ip dhcp excluded-address 10.0.8.1 10.0.8.20</p>
                     <p>ip dhcp excluded-address 10.1.12.1 10.1.12.20</p>
                     <p>ip dhcp excluded-address 10.1.13.1 10.1.13.20</p>
@@ -1087,7 +1087,7 @@ import "../styles/global.css";
                     <p>ip dhcp excluded-address 10.2.23.1 10.2.23.20</p>
                     <br />
 
-                    <p class="text-slate-500 italic"> // POOLS de direcciones</p>
+                    <p class="text-slate-500 italic"> // Adress-Pools</p>
                     <p>ip dhcp pool POOL_V12_WEST_RED</p>
                     <p class="pl-4">network 10.1.12.0 255.255.255.0</p>
                     <p class="pl-4">default-router 10.1.12.1</p>
@@ -1113,7 +1113,7 @@ import "../styles/global.css";
                     <p class="pl-4">default-router 10.0.8.1</p>
                     <br />
 
-                    <p class="text-slate-500 italic"> // Configuración de Relay (IP  Helper)</p>
+                    <p class="text-slate-500 italic"> // Relay-Konfiguration (IP Helper)</p>
                     <p>interface vlan 8</p>
                     <p class="pl-4">ip helper-address 10.0.99.1</p>
                     <br />
@@ -1143,7 +1143,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase italic"
           >
-            05. Enrutamiento Dinámico (RIP v2)
+            05. Dynamisches Routing (RIP v2)
           </h2>
           <div
             class="p-8
@@ -1155,15 +1155,15 @@ import "../styles/global.css";
               class="mb-6 pl-4
                 text-sm text-slate-400 leading-relaxed tracking-widest tracking-tighter
                 border-l border-blue-500
-                italic uppercase uppercase italic"
+                italic uppercase"
             >
-              Configuración para GV-L, GV-R y Routers:
+              Konfiguration für GV-L, GV-R und Router:
             </p>
             <div class="p-6 font-mono text-sm text-blue-300 bg-black/40 rounded-xl space-y-1">
               <p>router rip</p>
               <p class="pl-4">version 2</p>
               <p class="pl-4">network 10.0.0.0</p>
-              <p class="pl-4">default-information originate (Aplicar solo en Routers)</p>
+              <p class="pl-4">default-information originate (Nur auf Routern anwenden)</p>
               <p class="pl-4">no auto-summary</p>
             </div>
           </div>
@@ -1176,7 +1176,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            06. Enrutamiento Estático (Mapa de Red)
+            06. Statisches Routing (Netzwerkplan)
           </h2>
 
           <div class="grid
@@ -1206,7 +1206,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Rutas hacia el Edificio Ost
+                    // Routen zum Gebäude Ost
                   </p>
                   <div
                     class="p-4
@@ -1231,7 +1231,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Rutas hacia Internet (Prioridad)
+                    // Routen zum Internet (Priorität)
                   </p>
                   <div
                     class="p-4
@@ -1241,12 +1241,12 @@ import "../styles/global.css";
                   >
                     <p>
                       ip route 0.0.0.0 0.0.0.0 10.1.1.1 10 <span
-                        class="text-slate-500">// Vía Router 1 - Principal</span
+                        class="text-slate-500">// Über Router 1 - Hauptverbindung</span
                       >
                     </p>
                     <p>
                       ip route 0.0.0.0 0.0.0.0 10.0.99.2 50 <span
-                        class="text-slate-500">// Vía Router 2 - Respaldo</span
+                        class="text-slate-500">// Über Router 2 - Backup</span
                       >
                     </p>
                   </div>
@@ -1283,7 +1283,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Rutas hacia el Edificio West
+                    // Routen zum Gebäude West
                   </p>
                   <div
                     class="p-4
@@ -1308,7 +1308,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Rutas hacia Internet (Prioridad)
+                    // Routen zum Internet (Priorität)
                   </p>
                   <div
                     class="p-4
@@ -1318,12 +1318,12 @@ import "../styles/global.css";
                   >
                     <p>
                       ip route 0.0.0.0 0.0.0.0 10.2.2.1 10 <span
-                        class="text-slate-500">// Vía Router 2 - Principal</span
+                        class="text-slate-500">// Über Router 2 - Hauptverbindung</span
                       >
                     </p>
                     <p>
                       ip route 0.0.0.0 0.0.0.0 10.0.99.1 50 <span
-                        class="text-slate-500">// Vía Router 1 - Respaldo</span
+                        class="text-slate-500">// Über Router 1 - Backup</span
                       >
                     </p>
                   </div>
@@ -1340,7 +1340,7 @@ import "../styles/global.css";
               border-l-4 border-blue-500
               uppercase"
           >
-            07. Configuración de los Routers (Internet y NAT)
+            07. Router-Konfiguration (Internet und NAT)
           </h2>
 
           <div class="grid
@@ -1370,7 +1370,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Configuración de Interfaces
+                    // Interface-Konfiguration
                   </p>
                   <div
                     class="p-4 space-y-4
@@ -1381,7 +1381,7 @@ import "../styles/global.css";
                     <div>
                       <p class="text-slate-500
                           italic">
-                        // Hacia el Switch (LAN)
+                        // Zum Switch (LAN)
                       </p>
                       <p>interface f0/1</p>
                       <p class="pl-4">ip address 10.1.1.1 255.255.255.252</p>
@@ -1397,9 +1397,9 @@ import "../styles/global.css";
                     <div>
                       <p class="text-slate-500
                           italic">
-                        // Hacia Internet (WAN)
+                        // Zum Internet (WAN)
                       </p>
-                      <p>interface f0/2 (example)</p>
+                      <p>interface f0/2 (Beispiel)</p>
                       <p class="pl-4
                           italic">
                         ip address 192.168.18.1 255.255.255.0
@@ -1422,7 +1422,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Rutas de Salida y Retorno
+                    // Ausgangs- und Rückrouten
                   </p>
                   <div
                     class="p-4
@@ -1432,7 +1432,7 @@ import "../styles/global.css";
                   >
                     <p class="text-slate-500
                         italic">
-                      // Salida al mundo
+                      // Ausgang zur Welt
                     </p>
                     <p>ip route 0.0.0.0 0.0.0.0 [IP_ISP]</p>
                     <br />
@@ -1440,7 +1440,7 @@ import "../styles/global.css";
                       class="text-orange-400 font-bold
                         italic underline decoration-orange-500/30"
                     >
-                      // Ruta de Retorno (VITAL)
+                      // Rückroute (ESSENZIELL)
                     </p>
                     <p>ip route 10.0.0.0 255.0.0.0 10.1.1.2</p>
                   </div>
@@ -1452,7 +1452,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Configuración NAT (PAT)
+                    // NAT-Konfiguration (PAT)
                   </p>
                   <div
                     class="p-4
@@ -1496,7 +1496,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Configuración de Interfaces
+                    // Interface-Konfiguration
                   </p>
                   <div
                     class="p-4 space-y-4
@@ -1507,7 +1507,7 @@ import "../styles/global.css";
                     <div>
                       <p class="text-slate-500
                           italic">
-                        // Hacia el Switch (LAN)
+                        // Zum Switch (LAN)
                       </p>
                       <p>interface f0/1</p>
                       <p class="pl-4">ip address 10.2.2.1 255.255.255.252</p>
@@ -1523,9 +1523,9 @@ import "../styles/global.css";
                     <div>
                       <p class="text-slate-500
                           italic">
-                        // Hacia Internet (WAN)
+                        // Zum Internet (WAN)
                       </p>
-                      <p>interface f0/2 (example)</p>
+                      <p>interface f0/2 (Beispiel)</p>
                       <p class="pl-4
                           italic">
                         ip address 192.168.18.2 255.255.255.0
@@ -1548,7 +1548,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Rutas de Salida y Retorno
+                    // Ausgangs- und Rückrouten
                   </p>
                   <div
                     class="p-4
@@ -1558,7 +1558,7 @@ import "../styles/global.css";
                   >
                     <p class="text-slate-500
                         italic">
-                      // Salida al mundo
+                      // Ausgang zur Welt
                     </p>
                     <p>ip route 0.0.0.0 0.0.0.0 [IP_ISP_R2]</p>
                     <br />
@@ -1566,7 +1566,7 @@ import "../styles/global.css";
                       class="text-orange-400 font-bold
                         italic underline decoration-orange-500/30"
                     >
-                      // Ruta de Retorno (VITAL)
+                      // Rückroute (ESSENZIELL)
                     </p>
                     <p>ip route 10.0.0.0 255.0.0.0 10.2.2.2</p>
                   </div>
@@ -1578,7 +1578,7 @@ import "../styles/global.css";
                       text-emerald-400 font-bold tracking-widest
                       uppercase italic underline decoration-emerald-500/30"
                   >
-                    // Configuración NAT (PAT)
+                    // NAT-Konfiguration (PAT)
                   </p>
                   <div
                     class="p-4
@@ -1607,7 +1607,7 @@ import "../styles/global.css";
       border-l-4 border-blue-500
       uppercase italic underline decoration-blue-500/30"
   >
-    08. Wireless Access Points (Wi-Fi Integrado)
+    08. Wireless Access Points (Integriertes Wi-Fi)
   </h2>
   <div class="grid gap-8 md:grid-cols-2">
     <div
@@ -1621,16 +1621,16 @@ import "../styles/global.css";
           font-bold text-white tracking-widest
           italic underline decoration-blue-500/30 uppercase"
       >
-        Conexión al Switch (EV-R)
+        Anschluss am Switch (EV-R)
       </h3>
       <p
         class="text-xs text-slate-400 tracking-tight leading-relaxed
           italic uppercase"
       >
-        Conectar el puerto LAN del Access Point a un puerto Gigabit o FastEthernet disponible en el <span class="text-blue-400">Switch EV-R</span>. El AP actuará como puente (Bridge) hacia la <span class="text-white">VLAN 23</span>.
+        Verbinden Sie den LAN-Port des Access Points mit einem verfügbaren Gigabit- oder FastEthernet-Port am <span class="text-blue-400">Switch EV-R</span>. Der AP fungiert als Bridge zum <span class="text-white">VLAN 23</span>.
       </p>
       <div class="mt-4 p-4 bg-black/40 rounded-xl font-mono text-sm text-blue-100">
-        <p>! Config en Switch EV-R</p>
+        <p>! Konfig auf Switch EV-R</p>
         <p>interface fa0/24</p>
         <p class="pl-4">switchport mode access</p>
         <p class="pl-4">switchport access vlan 23</p>
@@ -1649,7 +1649,7 @@ import "../styles/global.css";
           font-bold text-blue-400 tracking-widest
           italic underline decoration-blue-500/30 uppercase"
       >
-        Gestión de Clientes
+        Client-Management
       </h3>
       <ul
         class="space-y-2
@@ -1671,7 +1671,7 @@ import "../styles/global.css";
             border-b border-white/5
             justify-between"
         >
-          <span>Seguridad:</span>
+          <span>Sicherheit:</span>
           <span class="text-white">WPA2-Personal</span>
         </li>
         <li
@@ -1680,16 +1680,16 @@ import "../styles/global.css";
             border-b border-white/5
             justify-between"
         >
-          <span>Servidor DHCP:</span>
+          <span>DHCP-Server:</span>
           <span class="text-blue-400">GV-R (VLAN 23)</span>
         </li>
         <li class="flex justify-between">
-          <span>Modo AP:</span>
+          <span>AP-Modus:</span>
           <span class="text-white">DHCP Disabled (Bridge)</span>
         </li>
       </ul>
       <p class="mt-4 text-[11px] text-slate-500 italic">
-        * Al desactivar el DHCP en el AP, las laptops recibirán IP del Pool POOL_V23_OST_PURPLE configurado en el Multicapa.
+        * Durch Deaktivieren von DHCP am AP erhalten Laptops ihre IP aus dem im Multilayer konfigurierten Pool POOL_V23_OST_PURPLE.
       </p>
     </div>
   </div>
@@ -1702,7 +1702,7 @@ import "../styles/global.css";
         border-l-4 border-blue-500
         uppercase"
           >
-            09. Configuración de Laptops
+            09. Laptop-Konfiguration
           </h2>
 
           <div
@@ -1724,20 +1724,20 @@ import "../styles/global.css";
                     text-[13px] font-mono tracking-[0.2em] text-blue-500 font-bold
                     uppercase italic underline decoration-blue-500/30"
                 >
-                  IP Address
+                  IP-Adresse
                 </p>
                 <p
                   class="text-xl font-bold text-white tracking-tight
                     uppercase italic"
                 >
-                  DHCP Automático
+                  Automatisches DHCP
                 </p>
                 <p
                   class="mt-1
-				    text-[12px] font-medium text-slate-500 font-sans
-				    lowercase italic invisible"
+                    text-[12px] font-medium text-slate-500 font-sans
+                    lowercase italic invisible"
                 >
-                  (De su vlan correspondiente)
+                  (Aus dem entsprechenden VLAN)
                 </p>
               </div>
 
@@ -1753,7 +1753,7 @@ import "../styles/global.css";
                     text-[13px] font-mono tracking-[0.2em] text-blue-500 font-bold
                     uppercase italic underline decoration-blue-500/30"
                 >
-                  Subnet Mask
+                  Subnetzmaske
                 </p>
                 <p
                   class="text-xl font-bold text-white tracking-tight
@@ -1763,10 +1763,10 @@ import "../styles/global.css";
                 </p>
                 <p
                   class="mt-1
-				    text-[12px] font-medium text-slate-500 font-sans
-				    lowercase italic invisible"
+                    text-[12px] font-medium text-slate-500 font-sans
+                    lowercase italic invisible"
                 >
-                  (De su vlan correspondiente)
+                  (Aus dem entsprechenden VLAN)
                 </p>
               </div>
 
@@ -1780,20 +1780,20 @@ import "../styles/global.css";
                     text-[13px] font-mono tracking-[0.2em] text-emerald-400 font-bold tracking-widest tracking-tighter
                     uppercase italic underline decoration-emerald-500/30 uppercase italic"
                 >
-                  Default Gateway
+                  Standard-Gateway
                 </p>
                 <p
                   class="text-xl font-bold text-white tracking-tight leading-tight
                     uppercase italic"
                 >
-                  IP Fantasma .1
+                  Phantom-IP .1
                 </p>
                 <p
                   class="mt-1
                     text-[12px] font-medium text-slate-500 font-sans
                     italic"
                 >
-                  (De su VLAN correspondiente)
+                  (Aus dem entsprechenden VLAN)
                 </p>
               </div>
             </div>
@@ -1812,10 +1812,10 @@ import "../styles/global.css";
                 text-4xl font-black text-white text-center tracking-tighter
                 uppercase italic"
             >
-              Resumen para verificar <span
+              Zusammenfassung zur Überprüfung des <span
                 class="text-blue-500
                   underline decoration-blue-500 underline-offset-8"
-                >Éxito</span
+                >Erfolgs</span
               >
             </h2>
 
@@ -1835,7 +1835,7 @@ import "../styles/global.css";
                     text-blue-500 font-bold text-xs tracking-widest
                     uppercase"
                 >
-                  01. Ping Interno
+                  01. Interner Ping
                 </p>
                 <p
                   class="text-sm leading-relaxed text-slate-400
@@ -1843,7 +1843,7 @@ import "../styles/global.css";
                 >
                   Laptop West (VLAN 12) -> Laptop West (VLAN 13).
                   <span class="text-white font-bold"
-                    >Verifica Inter-VLAN Routing en GV-L.</span
+                    >Verifiziert das Inter-VLAN Routing auf GV-L.</span
                   >
                 </p>
               </div>
@@ -1858,7 +1858,7 @@ import "../styles/global.css";
                     text-emerald-500 font-bold text-xs tracking-widest
                     uppercase"
                 >
-                  02. Entre Edificios
+                  02. Zwischen Gebäuden
                 </p>
                 <p
                   class="text-sm leading-relaxed text-slate-400
@@ -1866,7 +1866,7 @@ import "../styles/global.css";
                 >
                   Laptop West -> Laptop Ost.
                   <span class="text-white font-bold"
-                    >Verifica EtherChannel y Rutas Estáticas.</span
+                    >Verifiziert EtherChannel und statische Routen.</span
                   >
                 </p>
               </div>
@@ -1887,9 +1887,9 @@ import "../styles/global.css";
                   class="text-sm leading-relaxed text-slate-400
                     italic"
                 >
-                  Laptop -> Servidor Externo (8.8.8.8).
+                  Laptop -> Externer Server (8.8.8.8).
                   <span class="text-white font-bold"
-                    >Verifica NAT Overload en el Router.</span
+                    >Verifiziert NAT Overload am Router.</span
                   >
                 </p>
               </div>
@@ -1904,17 +1904,17 @@ import "../styles/global.css";
                     text-orange-500 font-bold text-xs tracking-widest
                     uppercase"
                 >
-                  04. Prueba de Backup
+                  04. Backup-Test
                 </p>
                 <p
                   class="text-sm leading-relaxed text-slate-400
                     italic"
                 >
-                  Borra cable de R1. Espera 30s.
+                  Kabel von R1 entfernen. 30 Sek. warten.
                   <span
                     class="text-white font-bold
                       italic underline decoration-orange-500/50"
-                    >Internet debe funcionar por Router 2.</span
+                    >Internet muss über Router 2 funktionieren.</span
                   >
                 </p>
               </div>
@@ -1928,21 +1928,19 @@ import "../styles/global.css";
                 <p
                   class="mb-2
                     text-purple-500 font-bold text-xs tracking-widest tracking-tighter
-                    uppercase uppercase italic"
+                    uppercase italic"
                 >
-                  05. Prueba de la Vuelta Larga (STP)
+                  05. Test des langen Weges (STP)
                 </p>
                 <p
                   class="text-sm leading-relaxed text-slate-400
                     italic"
                 >
-                  Borra el cable verde entre EV-L y GV-L. Espera a que el puerto
-                  naranja se ponga verde.
+                  Grünes Kabel zwischen EV-L und GV-L entfernen. Warten, bis der orangefarbene Port grün wird.
                   <span
                     class="text-white font-bold
                       italic underline decoration-purple-500/50"
-                    >Deberías tener ping al West e Internet tras la convergencia
-                    de Spanning-Tree.</span
+                    >Ping nach West und Internet muss nach der Spanning-Tree-Konvergenz wieder funktionieren.</span
                   >
                 </p>
               </div>
@@ -1951,26 +1949,26 @@ import "../styles/global.css";
 
 <div class="mt-8 p-8 bg-slate-900 border border-white/10 rounded-[2.5rem] lg:col-span-3">
   <h3 class="mb-6 text-xl font-black text-white tracking-tighter uppercase italic text-center">
-    Escenario: <span class="text-blue-500">Doble ISP Independiente</span> (West & Ost)
+    Szenario: <span class="text-blue-500">Doppelter unabhängiger ISP</span> (West & Ost)
   </h3>
 
   <div class="grid gap-8 md:grid-cols-2">
     <div class="p-6 bg-black/40 rounded-2xl border border-blue-500/20">
-      <h4 class="text-xs font-bold text-blue-400 uppercase mb-4 italic">ISP West (Conectado a R1)</h4>
+      <h4 class="text-xs font-bold text-blue-400 uppercase mb-4 italic">ISP West (Verbunden mit R1)</h4>
       <div class="font-mono text-[12px] text-blue-100 space-y-2">
         <p>interface gig0/0</p>
         <p class="pl-4 italic">ip address 192.168.18.254 255.255.255.0</p>
-        <p class="text-slate-500">// Retorno exclusivo a R1</p>
+        <p class="text-slate-500">// Exklusive Rückroute zu R1</p>
         <p>ip route 10.0.0.0 255.0.0.0 192.168.18.1</p>
       </div>
     </div>
 
     <div class="p-6 bg-black/40 rounded-2xl border border-pink-500/20">
-      <h4 class="text-xs font-bold text-pink-400 uppercase mb-4 italic">ISP Ost (Conectado a R2)</h4>
+      <h4 class="text-xs font-bold text-pink-400 uppercase mb-4 italic">ISP Ost (Verbunden mit R2)</h4>
       <div class="font-mono text-[12px] text-blue-100 space-y-2">
         <p>interface gig0/0</p>
         <p class="pl-4 italic">ip address 192.168.18.254 255.255.255.0</p>
-        <p class="text-slate-500">// Retorno exclusivo a R2</p>
+        <p class="text-slate-500">// Exklusive Rückroute zu R2</p>
         <p>ip route 10.0.0.0 255.0.0.0 192.168.18.2</p>
       </div>
     </div>
@@ -1978,8 +1976,8 @@ import "../styles/global.css";
 
   <div class="mt-8 p-6 bg-blue-900/10 rounded-2xl border-l-4 border-blue-500 italic">
     <p class="text-sm text-slate-400 leading-relaxed">
-      <strong class="text-white uppercase">¿Cómo se logra el salto entre edificios?</strong><br/>
-      Si el cable del ISP West se corta, el <span class="text-blue-400 font-bold">Router 1</span> detecta que su interfaz WAN está "Down". Al no tener ruta de salida, deja de anunciar la ruta por defecto a través de <span class="text-green-400 font-bold">RIP v2</span>. En ese instante, los switches del West aprenden vía RIP que la única salida válida es ahora el <span class="text-pink-400 font-bold">Router 2</span>. El tráfico viajará por el <span class="text-white font-bold">EtherChannel</span> y saldrá por el edificio Ost de forma transparente.
+      <strong class="text-white uppercase">Wie wird der Sprung zwischen Gebäuden erreicht?</strong><br/>
+      Wenn das Kabel des ISP West unterbrochen wird, erkennt <span class="text-blue-400 font-bold">Router 1</span>, dass sein WAN-Interface "Down" ist. Da er keine Ausgangsroute mehr hat, stoppt er die Ankündigung der Standardroute über <span class="text-green-400 font-bold">RIP v2</span>. In diesem Moment lernen die Switches im West-Gebäude über RIP, dass der einzige gültige Ausgang nun <span class="text-pink-400 font-bold">Router 2</span> ist. Der Datenverkehr wird über den <span class="text-white font-bold">EtherChannel</span> geleitet und verlässt das Netz transparent über das Ost-Gebäude.
     </p>
   </div>
 </div>
@@ -1990,7 +1988,7 @@ import "../styles/global.css";
             text-center text-slate-600 text-[10px] font-mono tracking-[0.5em] tracking-tight leading-none tracking-widest
             uppercase italic underline decoration-blue-500/30 uppercase italic"
         >
-          Cisco Lab Documentation System // 2026
+          Cisco Lab Dokumentationssystem // 2026
         </footer>
       </main>
     </div>
@@ -2019,157 +2017,154 @@ import "../styles/global.css";
 
 
 <script>
-  // 1. Definimos las razones de los comandos aquí (Mantenemos tu estructura funcional)
   const reasons = {
-    //SEGURIDAD DISPOSITIVOS
-    "hostname [Device_Name]": "Asigna un nombre único al equipo para identificarlo rápidamente en el campus. Vital para la administración remota.",
-    "ip domain-name lab.test": "Define el nombre de dominio del dispositivo; es un requisito técnico obligatorio para poder generar las llaves de cifrado SSH.",
-    "no ip domain-lookup": "Evita que el equipo intente resolver comandos mal escritos como si fueran direcciones web, eliminando esperas innecesarias de 30 segundos.",
-    "username cisco privilege 15 secret cisco": "Crea un usuario local con nivel total de administración (privilegio 15) y encripta su contraseña para que no sea visible.",
-    "enable secret cisco": "Protege el acceso al modo de configuración con una contraseña encriptada de alta seguridad, evitando cambios no autorizados.",
-    "service password-encryption": "Encripta todas las contraseñas que aparecen en el archivo de configuración, ocultándolas de miradas indiscretas.",
+    // GERÄTESICHERHEIT
+    "hostname [Device_Name]": "Weist dem Gerät einen eindeutigen Namen zu, um es auf dem Campus schnell zu identifizieren. Entscheidend für die Fernverwaltung.",
+    "ip domain-name lab.test": "Definiert den Domänennamen des Geräts; eine zwingende technische Voraussetzung für die Erzeugung von SSH-Verschlüsselungsschlüsseln.",
+    "no ip domain-lookup": "Verhindert, dass das Gerät versucht, falsch geschriebene Befehle als Webadressen aufzulösen, wodurch unnötige Wartezeiten von 30 Sekunden entfallen.",
+    "username cisco privilege 15 secret cisco": "Erstellt einen lokalen Benutzer mit vollen Administratorrechten (Privileg 15) und verschlüsselt dessen Passwort.",
+    "enable secret cisco": "Schützt den Zugriff auf den Konfigurationsmodus mit einem hochsicheren verschlüsselten Passwort, um unbefugte Änderungen zu verhindern.",
+    "service password-encryption": "Verschlüsselt alle Passwörter in der Konfigurationsdatei und schützt sie vor neugierigen Blicken.",
 
-    // GESTIÓN DE LÍNEAS Y LOGS
-    "logging buffered 8192": "Reserva espacio en la RAM para guardar eventos y errores del sistema, permitiendo revisar fallas pasadas sin servidores externos.",
-    "logging host [IP Servidor West]": "Establece el servidor del edificio West como destino. Se configura como primero en la lista en los dispositivos del West para asegurar que los logs se guarden localmente por velocidad y eficiencia.",
-    "logging host [IP Servidor Ost]": "Establece el servidor del edificio Ost como destino. Actúa como servidor principal para el edificio Ost y como respaldo (Failover) para los dispositivos del West.",   
-    "logging trap debugging": "Ajusta el nivel de logs al máximo detalle posible, permitiendo rastrear hasta el más mínimo cambio o error en el sistema.",
-    "logging source-interface vlan 8": "Fuerza al switch a enviar los logs usando su identidad de la red de Gestión (VLAN 8), permitiendo que el tráfico atraviese las ACL de seguridad del Centro de Datos.",
-    "logging synchronous": "Organiza los mensajes del sistema para que no se mezclen con lo que estás escribiendo, manteniendo la consola legible.",
-    "exec-timeout 0 0": "Desactiva el cierre automático de sesión por inactividad; ideal para entornos de laboratorio donde se requiere conexión constante.",
+    // LEITUNGSVERWALTUNG UND LOGS
+    "logging buffered 8192": "Reserviert RAM-Speicherplatz für Systemereignisse und Fehler, sodass vergangene Ausfälle ohne externe Server überprüft werden können.",
+    "logging host [IP Servidor West]": "Legt den Server im West-Gebäude als Ziel fest. Wird in West-Geräten als primär konfiguriert, um lokale Protokollierung für Geschwindigkeit und Effizienz zu gewährleisten.",
+    "logging host [IP Servidor Ost]": "Legt den Server im Ost-Gebäude als Ziel fest. Fungiert als Hauptserver für das Ost-Gebäude und als Backup (Failover) für West-Geräte.",   
+    "logging trap debugging": "Stellt die Protokollierung auf die höchste Detailstufe ein, um selbst kleinste Änderungen oder Systemfehler nachverfolgen zu können.",
+    "logging source-interface vlan 8": "Zwingt den Switch, Logs über seine Identität im Management-Netz (VLAN 8) zu senden, damit der Verkehr die Rechenzentrums-ACLs passieren kann.",
+    "logging synchronous": "Organisiert Systemmeldungen so, dass sie nicht mit Ihren Eingaben vermischt werden, wodurch die Konsole lesbar bleibt.",
+    "exec-timeout 0 0": "Deaktiviert das automatische Abmelden bei Inaktivität; ideal für Laborumgebungen, in denen eine konstante Verbindung erforderlich ist.",
 
-    // ACCESO REMOTO SEGURO (SSH)
-    "crypto key generate rsa": "Genera las llaves criptográficas necesarias para cifrar la comunicación entre el administrador y el equipo, eliminando el riesgo de espionaje.",
-    "ip ssh version 2": "Fuerza el uso de la versión más moderna y segura de SSH, corrigiendo vulnerabilidades críticas de la versión original.",
-    "transport input ssh": "Bloquea protocolos inseguros como Telnet; garantiza que todas las conexiones administrativas viajen en un túnel encriptado.",
-    "login local": "Configura el acceso para que el equipo valide las credenciales contra la base de datos de usuarios creada localmente.",
-    "access-class 10 in": "Filtro de seguridad que restringe el acceso remoto: solo los equipos de la red de Management (VLAN 8) pueden intentar conectarse.",
+    // SICHERER FERNZUGRIFF (SSH)
+    "crypto key generate rsa": "Erzeugt die kryptografischen Schlüssel für die verschlüsselte Kommunikation zwischen Administrator und Gerät, wodurch das Risiko von Spionage eliminiert wird.",
+    "ip ssh version 2": "Erzwingt die Nutzung der modernsten und sichersten SSH-Version und behebt kritische Schwachstellen der ursprünglichen Version.",
+    "transport input ssh": "Blockiert unsichere Protokolle wie Telnet; garantiert, dass alle administrativen Verbindungen über einen verschlüsselten Tunnel erfolgen.",
+    "login local": "Konfiguriert den Zugriff so, dass das Gerät Anmeldedaten gegen die lokal erstellte Benutzerdatenbank prüft.",
+    "access-class 10 in": "Sicherheitsfilter, der den Fernzugriff einschränkt: Nur Geräte aus dem Management-Netz (VLAN 8) dürfen eine Verbindung versuchen.",
 
-    // SEGURIDAD DE PUERTOS
-    "spanning-tree portfast": "Evita esperas de 30s en el puerto; permite que la laptop reciba IP de inmediato al conectarse sin pasar por estados de escucha de STP.",
-    "switchport port-security": "Activa la restricción de acceso físico; impide que cualquier dispositivo no autorizado pueda transmitir datos por este puerto.",
-    "switchport port-security maximum 2": "Permite un máximo de 2 MACs (ej. Laptop y Teléfono IP) para evitar que alguien conecte un switch o hub pirata y amplíe la red.",
-    "switchport port-security mac-address sticky": "El switch memoriza la MAC del trabajador y la guarda en la configuración; así solo ese equipo podrá usar ese puerto permanentemente.",
-    "switchport port-security violation shutdown": "Medida de seguridad reactiva: si se detecta un intruso, el puerto se apaga físicamente y requiere intervención de IT para reactivarse.",
-    "spanning-tree bpduguard enable": "Protege la red de bucles accidentales; si alguien conecta otro switch en la oficina, el puerto se bloquea para evitar una caída total de la red.",
+    // PORTSICHERHEIT
+    "spanning-tree portfast": "Vermeidet 30 Sek. Wartezeit am Port; ermöglicht es dem Laptop, sofort beim Verbinden eine IP zu erhalten, ohne STP-Listening-Zustände zu durchlaufen.",
+    "switchport port-security": "Aktiviert die physische Zugangsbeschränkung; verhindert, dass unbefugte Geräte Daten über diesen Port übertragen.",
+    "switchport port-security maximum 2": "Erlaubt maximal 2 MAC-Adressen (z. B. Laptop und IP-Telefon), um zu verhindern, dass jemand einen fremden Switch oder Hub anschließt.",
+    "switchport port-security mac-address sticky": "Der Switch speichert die MAC-Adresse des Mitarbeiters permanent in der Konfiguration.",
+    "switchport port-security violation shutdown": "Reaktive Sicherheitsmaßnahme: Bei Erkennung eines Eindringlings wird der Port physisch abgeschaltet und erfordert ein Eingreifen der IT.",
+    "spanning-tree bpduguard enable": "Schützt das Netz vor versehentlichen Schleifen; wenn jemand im Büro einen weiteren Switch anschließt, wird der Port blockiert.",
 
-    // REDUNDANCIA Y GATEWAYS (HSRP)
-    "standby 12 ip 10.1.12.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
-    "standby 13 ip 10.1.13.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
-    "standby 22 ip 10.2.22.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
-    "standby 23 ip 10.2.23.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
+    // REDUNDANZ UND GATEWAYS (HSRP)
+    "standby 12 ip 10.1.12.1": "Erstellt die 'Phantom-IP', die Geräte als Gateway sehen; ermöglicht den Weiterbetrieb des Netzes, auch wenn ein Hauptswitch ausfällt.",
+    "standby 13 ip 10.1.13.1": "Erstellt die 'Phantom-IP', die Geräte als Gateway sehen; ermöglicht den Weiterbetrieb des Netzes, auch wenn ein Hauptswitch ausfällt.",
+    "standby 22 ip 10.2.22.1": "Erstellt die 'Phantom-IP', die Geräte als Gateway sehen; ermöglicht den Weiterbetrieb des Netzes, auch wenn ein Hauptswitch ausfällt.",
+    "standby 23 ip 10.2.23.1": "Erstellt die 'Phantom-IP', die Geräte als Gateway sehen; ermöglicht den Weiterbetrieb des Netzes, auch wenn ein Hauptswitch ausfällt.",
 
-    "standby 12 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
-    "standby 13 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
-    "standby 22 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
-    "standby 23 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+    "standby 12 preempt": "Ermöglicht dem Switch, nach Reparatur oder Neustart automatisch wieder die Führung zu übernehmen.",
+    "standby 13 preempt": "Ermöglicht dem Switch, nach Reparatur oder Neustart automatisch wieder die Führung zu übernehmen.",
+    "standby 22 preempt": "Ermöglicht dem Switch, nach Reparatur oder Neustart automatisch wieder die Führung zu übernehmen.",
+    "standby 23 preempt": "Ermöglicht dem Switch, nach Reparatur oder Neustart automatisch wieder die Führung zu übernehmen.",
 
-    "standby 12 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 12, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
-    "standby 13 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 13, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
-    "standby 22 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 22, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
-    "standby 23 priority 110": "Se usa 110 para forzar la maestría sobre la VLAN 23, asegurando que el edificio tenga un camino determinista hacia el núcleo.",
+    "standby 12 priority 110": "Priorität 110 erzwingt die Master-Rolle für VLAN 12 und sorgt für einen deterministischen Weg zum Kern.",
+    "standby 13 priority 110": "Priorität 110 erzwingt die Master-Rolle für VLAN 13 und sorgt für einen deterministischen Weg zum Kern.",
+    "standby 22 priority 110": "Priorität 110 erzwingt die Master-Rolle für VLAN 22 und sorgt für einen deterministischen Weg zum Kern.",
+    "standby 23 priority 110": "Priorität 110 erzwingt die Master-Rolle für VLAN 23 und sorgt für einen deterministischen Weg zum Kern.",
 
-    "standby 12 priority 100": "Define a este equipo como el segundo al mando para la VLAN 12; garantiza continuidad del servicio si el switch principal de West falla.",
-    "standby 13 priority 100": "Define a este equipo como el segundo al mando para la VLAN 13; garantiza continuidad del servicio si el switch principal de West falla.",
-    "standby 22 priority 100": "Define a este equipo como el segundo al mando para la VLAN 22; garantiza continuidad del servicio si el switch principal de Ost falla.",
-    "standby 23 priority 100": "Define a este equipo como el segundo al mando para la VLAN 23; garantiza continuidad del servicio si el switch principal de Ost falla.",
+    "standby 12 priority 100": "Definiert dieses Gerät als Stellvertreter für VLAN 12; garantiert Dienstkontinuität bei Ausfall des West-Hauptswitches.",
+    "standby 13 priority 100": "Definiert dieses Gerät als Stellvertreter für VLAN 13; garantiert Dienstkontinuität bei Ausfall des West-Hauptswitches.",
+    "standby 22 priority 100": "Definiert dieses Gerät als Stellvertreter für VLAN 22; garantiert Dienstkontinuität bei Ausfall des Ost-Hauptswitches.",
+    "standby 23 priority 100": "Definiert dieses Gerät als Stellvertreter für VLAN 23; garantiert Dienstkontinuität bei Ausfall des Ost-Hauptswitches.",
 
-    "standby 99 ip 10.0.99.1": "Crea la 'IP Fantasma' que los dispositivos ven como gateway; permite que la red siga funcionando aunque uno de los switches principales falle.",
-    "standby 99 priority 110": "Se asigna 110 para designar a este switch como el 'Gateway Activo'. Al tener una prioridad superior al valor predeterminado, obligamos a que todo el tráfico que entra y sale de los servidores sea procesado por este equipo específicamente.",
-    "standby 99 priority 100": "Se establece en 100 para definir el rol de 'Standby' (Respaldo). Este switch monitorea al principal y solo asumirá la carga de la VLAN 99 si detecta que el switch con prioridad 110 ha quedado fuera de servicio, garantizando alta disponibilidad.",
-    "standby 99 preempt": "Permite que el switch recupere su rol de líder automáticamente tras ser reparado o reiniciado, manteniendo el diseño de red original.",
+    "standby 99 ip 10.0.99.1": "Erstellt die 'Phantom-IP' für die Server; ermöglicht den Weiterbetrieb, auch wenn ein Hauptswitch ausfällt.",
+    "standby 99 priority 110": "Weist 110 zu, um diesen Switch als 'Aktives Gateway' festzulegen. Mit einer höheren Priorität erzwingen wir, dass der gesamte Serververkehr über dieses spezifische Gerät läuft.",
+    "standby 99 priority 100": "Setzt auf 100 für die 'Standby'-Rolle (Backup). Dieser Switch überwacht den primären und übernimmt nur, wenn dieser ausfällt.",
+    "standby 99 preempt": "Ermöglicht dem Switch, nach einer Reparatur automatisch wieder seine Leader-Rolle einzunehmen.",
 
-    "interface vlan 8 h": "Crea el Gateway Virtual para la red de Gestión. Es vital para asegurar que los administradores siempre tengan acceso remoto (SSH) a los switches, incluso si uno de los núcleos físicos falla.",
-
-
-    // ACL SEGURIDAD SERVIDORES
-    "ip access-list extended SERVER_SECURITY": "Inicia la lista de control de acceso para blindar el Centro de Datos. Su objetivo es filtrar quién puede entrar a la zona de servidores.",
-    "permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255": "Permite que solo la red de Gestión (VLAN 8) acceda a los servidores para tareas de administración y envío de logs (Syslog).",
-    "deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255": "Bloquea proactivamente cualquier intento de acceso a los servidores desde cualquier otra red interna (VLANs de usuarios).",
-    "permit ip any any": "Línea vital que permite que el tráfico general (como la navegación a Internet) siga funcionando después de haber filtrado el acceso a los servidores.",
-
-    // ACL AISLAMIENTO (WEST/OST)
-    "ip access-list extended ACL_WEST": "Define la política de salida para el Edificio West. Controla qué destinos tienen permitidos los empleados de este edificio.",
-    "ip access-list extended ACL_OST": "Define la política de salida para el Edificio Ost. Controla qué destinos tienen permitidos los empleados de este edificio.",
-    "deny ip 10.1.0.0 0.0.255.255 10.2.0.0 0.0.255.255": "Regla de aislamiento: impide que los usuarios del West se comuniquen con el edificio Ost.",
-    "deny ip 10.2.0.0 0.0.255.255 10.1.0.0 0.0.255.255": "Regla de aislamiento: impide que los usuarios del Ost se comuniquen con el edificio West.",
-    "deny ip 10.1.0.0 0.0.255.255 10.0.8.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes intenten saltar a la red de gestión administrativa.",
-    "deny ip 10.2.0.0 0.0.255.255 10.0.8.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes intenten saltar a la red de gestión administrativa.",
-    "deny ip 10.1.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes conectarse a los servidores.",
-    "deny ip 10.2.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Seguridad de infraestructura: prohíbe que usuarios comunes conectarse a los servidores.",
-
-    "deny ip 10.1.12.0 0.0.0.255 10.1.13.0 0.0.0.255": "Política de Micro-segmentación: impide que los usuarios de la VLAN 12 accedan a los recursos de la VLAN 13, limitando el radio de infección en caso de ataques.",
-    "deny ip 10.1.13.0 0.0.0.255 10.1.12.0 0.0.0.255": "Garantiza la bidireccionalidad del bloqueo anterior; asegura que el tráfico de la VLAN 13 sea descartado si intenta entrar en la red de la VLAN 12.",
-
-    "deny ip 10.2.22.0 0.0.0.255 10.2.23.0 0.0.0.255": "Política de Micro-segmentación: impide que los usuarios de la VLAN 22 accedan a los recursos de la VLAN 23, limitando el radio de infección en caso de ataques.",
-    "deny ip 10.2.23.0 0.0.0.255 10.2.22.0 0.0.0.255": "Garantiza la bidireccionalidad del bloqueo anterior; asegura que el tráfico de la VLAN 23 sea descartado si intenta entrar en la red de la VLAN 22.",
+    "interface vlan 8 h": "Erstellt das virtuelle Gateway für das Management-Netz. Wichtig für den ständigen Fernzugriff (SSH) der Administratoren, selbst bei Ausfall eines Cores.",
 
 
-    // APLICACIÓN
-    "ip access-group SERVER_SECURITY out": "Aplica el filtro a la salida de la interfaz. El switch revisa los paquetes justo antes de entregarlos a los servidores.",
-    "ip access-group ACL_WEST in": "Aplica el filtro a la entrada de la interfaz. Bloquea el tráfico no deseado en el momento exacto en que sale de la laptop del usuario.",
-    "ip access-group ACL_OST in": "Aplica el filtro a la entrada de la interfaz. Bloquea el tráfico no deseado en el momento exacto en que sale de la laptop del usuario.",
+    // ACL SERVER-SICHERHEIT
+    "ip access-list extended SERVER_SECURITY": "Startet die Zugriffskontrollliste zum Schutz des Rechenzentrums. Ziel ist es zu filtern, wer die Serverzone betreten darf.",
+    "permit ip 10.0.8.0 0.0.0.255 10.0.99.0 0.0.0.255": "Erlaubt nur dem Management-Netz (VLAN 8) den Zugriff auf die Server für Administration und Logging.",
+    "deny ip 10.0.0.0 0.255.255.255 10.0.99.0 0.0.0.255": "Blockiert proaktiv Zugriffsversuche auf die Server von allen anderen internen Netzen (Benutzer-VLANs).",
+    "permit ip any any": "Lebenswichtige Zeile, die allgemeinen Datenverkehr (wie Internet-Browsing) nach der Serverfilterung weiterhin zulässt.",
+
+    // ACL ISOLATION (WEST/OST)
+    "ip access-list extended ACL_WEST": "Definiert die Ausgangsrichtlinie für Gebäude West. Kontrolliert, welche Ziele Mitarbeiter dieses Gebäudes erreichen dürfen.",
+    "ip access-list extended ACL_OST": "Definiert die Ausgangsrichtlinie für Gebäude Ost. Kontrolliert, welche Ziele Mitarbeiter dieses Gebäudes erreichen dürfen.",
+    "deny ip 10.1.0.0 0.0.255.255 10.2.0.0 0.0.255.255": "Isolationsregel: Verhindert, dass Benutzer aus West mit dem Gebäude Ost kommunizieren.",
+    "deny ip 10.2.0.0 0.0.255.255 10.1.0.0 0.0.255.255": "Isolationsregel: Verhindert, dass Benutzer aus Ost mit dem Gebäude West kommunizieren.",
+    "deny ip 10.1.0.0 0.0.255.255 10.0.8.0 0.0.0.255": "Infrastruktursicherheit: Verbietet normalen Benutzern den Zugriff auf das administrative Management-Netz.",
+    "deny ip 10.2.0.0 0.0.255.255 10.0.8.0 0.0.0.255": "Infrastruktursicherheit: Verbietet normalen Benutzern den Zugriff auf das administrative Management-Netz.",
+    "deny ip 10.1.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Infrastruktursicherheit: Verbietet normalen Benutzern die Verbindung zu den Servern.",
+    "deny ip 10.2.0.0 0.0.255.255 10.0.99.0 0.0.0.255": "Infrastruktursicherheit: Verbietet normalen Benutzern die Verbindung zu den Servern.",
+
+    "deny ip 10.1.12.0 0.0.0.255 10.1.13.0 0.0.0.255": "Mikrosegmentierungs-Richtlinie: Verhindert Zugriff von VLAN 12 auf VLAN 13, um den Infektionsradius bei Angriffen zu begrenzen.",
+    "deny ip 10.1.13.0 0.0.0.255 10.1.12.0 0.0.0.255": "Garantiert die Bidirektionalität der obigen Sperre; stellt sicher, dass Verkehr von VLAN 13 verworfen wird, wenn er in VLAN 12 eindringen will.",
+
+    "deny ip 10.2.22.0 0.0.0.255 10.2.23.0 0.0.0.255": "Mikrosegmentierungs-Richtlinie: Verhindert Zugriff von VLAN 22 auf VLAN 23, um den Infektionsradius bei Angriffen zu begrenzen.",
+    "deny ip 10.2.23.0 0.0.0.255 10.2.22.0 0.0.0.255": "Garantiert die Bidirektionalität der obigen Sperre; stellt sicher, dass Verkehr von VLAN 23 verworfen wird, wenn er in VLAN 22 eindringen will.",
+
+
+    // ANWENDUNG
+    "ip access-group SERVER_SECURITY out": "Wendet den Filter am Ausgang des Interfaces an. Der Switch prüft Pakete kurz bevor sie den Servern zugestellt werden.",
+    "ip access-group ACL_WEST in": "Wendet den Filter am Eingang des Interfaces an. Blockiert unerwünschten Verkehr in dem Moment, in dem er vom Laptop des Benutzers kommt.",
+    "ip access-group ACL_OST in": "Wendet den Filter am Eingang des Interfaces an. Blockiert unerwünschten Verkehr in dem Moment, in dem er vom Laptop des Benutzers kommt.",
 
     // ETHERCHANNEL (LACP)
-    "channel-group 1 mode active": "Agrupa dos cables físicos Gigabit en un solo canal lógico de 2Gbps, aumentando el ancho de banda y eliminando cuellos de botella entre edificios.",
-    "interface port-channel 1": "Crea la interfaz virtual que gestiona el grupo de cables; simplifica la configuración de seguridad y enrutamiento entre los dos switches core. Se configura como un enlace de alta capacidad (LACP) para soportar el tráfico inter-edificio.",
-    "ip address 10.0.99.1 255.255.255.252": "Asigna una red punto a punto al enlace entre edificios para permitir que el tráfico fluya directamente sin pasar por los routers de salida.",
+    "channel-group 1 mode active": "Bündelt zwei physische Gigabit-Kabel zu einem logischen 2Gbps-Kanal, erhöht die Bandbreite und beseitigt Engpässe zwischen Gebäuden.",
+    "interface port-channel 1": "Erstellt das virtuelle Interface zur Verwaltung der Kabelgruppe; vereinfacht Sicherheitskonfiguration und Routing zwischen den Core-Switches.",
+    "ip address 10.0.99.1 255.255.255.252": "Weist dem Link zwischen den Gebäuden ein Punkt-zu-Punkt-Netz zu, damit der Verkehr direkt fließen kann, ohne die Ausgangsrouter zu passieren.",
 
-    // ENCAPSULAMIENTO
-    "switchport trunk encapsulation dot1q": "Prepara el puerto para entender etiquetas VLAN; es el estándar necesario antes de poder transportar múltiples redes por un solo cable físico.",
-    "switchport mode trunk": "Convierte el puerto en una 'supercarretera' que transporta datos de todas las VLANs (Gestión, West, Ost, Servidores) simultáneamente.",
+    // ENKAPSELUNG
+    "switchport trunk encapsulation dot1q": "Bereitet den Port auf VLAN-Tags vor; der notwendige Standard für den Transport mehrerer Netze über ein einziges physisches Kabel.",
+    "switchport mode trunk": "Verwandelt den Port in eine 'Datenautobahn', die gleichzeitig Daten aller VLANs transportiert.",
 
-    // EL PORQUÉ DEL IP HELPER
-    "ip helper-address 10.0.99.1": "Actúa como respaldo de alta disponibilidad. Si el servicio DHCP local falla, este comando reenvía la petición al switch del otro edificio para que entregue la IP, asegurando que nadie se quede sin conexión ante una caída del nodo principal.",
-    "ip helper-address 10.0.99.2": "Actúa como respaldo de alta disponibilidad. Si el servicio DHCP local falla, este comando reenvía la petición al switch del otro edificio para que entregue la IP, asegurando que nadie se quede sin conexión ante una caída del nodo principal.",
+    // DAS WARUM DES IP HELPERS
+    "ip helper-address 10.0.99.1": "Dient als Hochverfügbarkeits-Backup. Fällt der lokale DHCP-Dienst aus, leitet dieser Befehl die Anfrage an den Switch des anderen Gebäudes weiter.",
+    "ip helper-address 10.0.99.2": "Dient als Hochverfügbarkeits-Backup. Fällt der lokale DHCP-Dienst aus, leitet dieser Befehl die Anfrage an den Switch des anderen Gebäudes weiter.",
 
-    // 2. EL PORQUÉ DE RIP V2 (Sección 05)
-    "router rip": "Se implementa para que la red sea autónoma; si un enlace se cae, los routers calculan una ruta alternativa en segundos sin intervención humana.",
-    "version 2": "Es obligatoria para redes modernas porque permite VLSM (subredes de distinto tamaño), lo que evita el desperdicio masivo de direcciones IP que ocurría en la versión 1.",
-    "network 10.0.0.0": "Agrupa toda la infraestructura bajo un solo anuncio; permite que cualquier VLAN nueva que crees sea conocida por el resto de la red automáticamente.",
-    "default-information originate (Aplicar solo en Routers)": "Permite que el router comparta su conexión a Internet con el resto de la red. Si este router pierde su ISP, dejará de enviar este mensaje y el tráfico se desviará automáticamente al router del otro edificio.",
-    "ip route 10.0.0.0 255.255.0.0 192.168.18.1": "Es una ruta de retorno necesaria en el router del ISP; sin ella, el Internet sabe cómo llegar a tu empresa pero los paquetes no sabrían cómo volver a entrar.",    "no auto-summary": "Vital para que la red no colapse; impide que RIP confunda la VLAN 12 con la 22 al intentar resumirlas, permitiendo que cada edificio mantenga su identidad.",
+    // DAS WARUM VON RIP V2
+    "router rip": "Wird implementiert, damit das Netz autonom bleibt; fällt ein Link aus, berechnen die Router in Sekunden eine alternative Route.",
+    "version 2": "Zwingend für moderne Netze, da es VLSM (unterschiedlich große Subnetze) erlaubt und massive IP-Verschwendung verhindert.",
+    "network 10.0.0.0": "Fasst die gesamte Infrastruktur unter einer Ankündigung zusammen; neue VLANs werden automatisch im restlichen Netz bekannt.",
+    "default-information originate (Nur auf Routern anwenden)": "Ermöglicht dem Router, seine Internetverbindung mit dem Rest des Netzes zu teilen.",
+    "ip route 10.0.0.0 255.255.0.0 192.168.18.1": "Notwendige Rückroute im ISP-Router; ohne sie wüsste das Internet zwar, wie es zu Ihrer Firma kommt, aber die Pakete fänden den Weg nicht zurück.",
+    "no auto-summary": "Verhindert, dass RIP VLAN 12 mit 22 verwechselt, indem es die Zusammenfassung stoppt; so behält jedes Gebäude seine Identität.",
     
-    // RUTAS ESTÁTICAS Y RESPALDOS
-    "ip route 10.2.22.0 255.255.255.0 10.0.99.2": "Establece un 'atajo' directo entre edificios a través del EtherChannel; así el tráfico local no tiene que subir hasta los routers de internet, optimizando la velocidad.",
-    "ip route 10.2.23.0 255.255.255.0 10.0.99.2": "Garantiza que la comunicación entre departamentos de distintos edificios sea privada y no dependa de la conexión externa del ISP.",
-    "ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Falla)": "Es el seguro de vida de los datos; si el switch principal de un edificio falla, el tráfico se desvía por el vecino para mantener a los usuarios conectados.",
-    "ip route 0.0.0.0 0.0.0.0 10.1.1.1 10 // Vía Router 1 - Principal": "Es la salida principal. El número '10' es la Distancia Administrativa; se pone baja para que el switch siempre prefiera este camino mientras el Router 1 esté vivo.",
-    "ip route 0.0.0.0 0.0.0.0 10.0.99.2 50 // Vía Router 2 - Respaldo": "Es una 'Ruta Flotante'. Al tener prioridad 50 (peor que 10), permanece invisible. Solo se activa si el enlace principal muere, garantizando que la empresa nunca se quede sin internet.",
+    // STATISCHE ROUTEN & BACKUPS
+    "ip route 10.2.22.0 255.255.255.0 10.0.99.2": "Richtet eine direkte Abkürzung zwischen Gebäuden über den EtherChannel ein; lokaler Verkehr muss nicht über die Internet-Router laufen.",
+    "ip route 10.2.23.0 255.255.255.0 10.0.99.2": "Garantiert, dass die Kommunikation zwischen Abteilungen verschiedener Gebäude privat bleibt und nicht vom externen ISP abhängt.",
+    "ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Falla)": "Lebensversicherung für Daten; fällt der Hauptswitch eines Gebäudes aus, wird der Verkehr über den Nachbarn umgeleitet.",
+    "ip route 0.0.0.0 0.0.0.0 10.1.1.1 10 // Über Router 1 - Hauptverbindung": "Hauptausgang. Die '10' ist die administrative Distanz; niedrig gesetzt, damit dieser Weg bevorzugt wird, solange Router 1 aktiv ist.",
+    "ip route 0.0.0.0 0.0.0.0 10.0.99.2 50 // Über Router 2 - Backup": "Eine 'Floating Route'. Mit Priorität 50 bleibt sie unsichtbar und wird nur aktiviert, wenn die Hauptverbindung ausfällt.",
 
-    "ip route 10.1.12.0 255.255.255.0 10.0.99.1": "Establece un 'atajo' directo entre edificios a través del EtherChannel; así el tráfico local no tiene que subir hasta los routers de internet, optimizando la velocidad.",
-    "ip route 10.1.13.0 255.255.255.0 10.0.99.1": "Garantiza que la comunicación entre departamentos de distintos edificios sea privada y no dependa de la conexión externa del ISP.",
-    "ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Falla)": "Es el seguro de vida de los datos; si el switch principal de un edificio falla, el tráfico se desvía por el vecino para mantener a los usuarios conectados.",
-    "ip route 0.0.0.0 0.0.0.0 10.2.2.1 10 // Vía Router 2 - Principal": "Es la salida principal. El número '10' es la Distancia Administrativa; se pone baja para que el switch siempre prefiera este camino mientras el Router 1 esté vivo.",
-    "ip route 0.0.0.0 0.0.0.0 10.0.99.1 50 // Vía Router 1 - Respaldo": "Es una 'Ruta Flotante'. Al tener prioridad 50 (peor que 10), permanece invisible. Solo se activa si el enlace principal muere, garantizando que la empresa nunca se quede sin internet.",
+    "ip route 10.1.12.0 255.255.255.0 10.0.99.1": "Richtet eine direkte Abkürzung zwischen Gebäuden über den EtherChannel ein; lokaler Verkehr muss nicht über die Internet-Router laufen.",
+    "ip route 10.1.13.0 255.255.255.0 10.0.99.1": "Garantiert, dass die Kommunikation zwischen Abteilungen verschiedener Gebäude privat bleibt und nicht vom externen ISP abhängt.",
+    "ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Falla)": "Lebensversicherung für Daten; fällt der Hauptswitch eines Gebäudes aus, wird der Verkehr über den Nachbarn umgeleitet.",
+    "ip route 0.0.0.0 0.0.0.0 10.2.2.1 10 // Über Router 2 - Hauptverbindung": "Hauptausgang. Die '10' ist die administrative Distanz; niedrig gesetzt, damit dieser Weg bevorzugt wird, solange Router 2 aktiv ist.",
+    "ip route 0.0.0.0 0.0.0.0 10.0.99.1 50 // Über Router 1 - Backup": "Eine 'Floating Route'. Mit Priorität 50 bleibt sie unsichtbar und wird nur aktiviert, wenn die Hauptverbindung ausfällt.",
 
-    // NAT Y ROUTERS
-    "ip nat inside": "Marca la interfaz que da hacia la empresa; le dice al router que los paquetes que entren por aquí deben ser traducidos para poder salir a internet.",
-    "ip nat outside": "Marca la interfaz que da al mundo exterior; indica que aquí es donde termina la red privada y comienza la conexión pública del ISP.",
+    // NAT UND ROUTER
+    "ip nat inside": "Markiert das zum Unternehmen zeigende Interface; sagt dem Router, dass Pakete von hier für das Internet übersetzt werden müssen.",
+    "ip nat outside": "Markiert das zur Außenwelt zeigende Interface; hier endet das private Netz und beginnt die öffentliche ISP-Verbindung.",
 
-    "ip route 10.0.0.0 255.0.0.0 10.1.1.2": "Crucial para el retorno: indica al router que los datos que vienen de internet deben enviarse de vuelta al switch GV-L para llegar a las laptops.",
-    "access-list 1 permit 10.0.0.0 0.255.255.255": "Define el grupo de confianza: especifica qué dispositivos internos tienen permiso para que el router les preste su IP pública para navegar.",
-    "ip nat inside source list 1 [interfaz_internet] overload": "Activa PAT (Port Address Translation): permite que cientos de empleados compartan una sola IP pública de forma segura y eficiente.",
+    "ip route 10.0.0.0 255.0.0.0 10.1.1.2": "Entscheidend für den Rückweg: Weist den Router an, Daten aus dem Internet zurück an Switch GV-L zu senden.",
+    "access-list 1 permit 10.0.0.0 0.255.255.255": "Definiert die Vertrauensgruppe: Bestimmt, welche internen Geräte die Erlaubnis haben, die öffentliche IP des Routers zum Surfen zu nutzen.",
+    "ip nat inside source list 1 [interfaz_internet] overload": "Aktiviert PAT (Port Address Translation): Erlaubt Hunderten Mitarbeitern das sichere Teilen einer einzigen öffentlichen IP.",
 
-    "ip route 10.0.0.0 255.0.0.0 10.2.2.2": "Crucial para el retorno: indica al router que los datos que vienen de internet deben enviarse de vuelta al switch GV-R para llegar a las laptops.",
+    "ip route 10.0.0.0 255.0.0.0 10.2.2.2": "Entscheidend für den Rückweg: Weist den Router an, Daten aus dem Internet zurück an Switch GV-R zu senden.",
   };
 
-  // 2. Lógica para mostrar el popup (Exactamente tu código original)
 const tooltip = document.createElement('div');
   tooltip.className = 'fixed hidden z-50 p-3 bg-slate-800 border border-emerald-500/50 text-emerald-400 text-xs rounded-lg shadow-2xl max-w-xs italic pointer-events-none';
   document.body.appendChild(tooltip);
 
-  // ESTA ES LA LÍNEA CLAVE: Selecciona ambos tipos de contenedores
   document.querySelectorAll('div[class*="bg-black/40"] p, div.overflow-x-auto p').forEach(p => {
     
-    // Limpieza profunda para asegurar que el match sea exacto
     const command = p.innerText.replace(/\u00a0/g, " ").trim();
     
     if (reasons[command]) {
       p.classList.add('cursor-help', 'hover:text-emerald-400', 'transition-colors');
       
       p.addEventListener('mouseenter', () => {
-        tooltip.innerHTML = `<strong class="block text-white not-italic mb-1 uppercase text-[10px]">¿Por qué?</strong>${reasons[command]}`;
+        tooltip.innerHTML = `<strong class="block text-white not-italic mb-1 uppercase text-[10px]">Warum?</strong>${reasons[command]}`;
         tooltip.classList.remove('hidden');
       });
 
