@@ -131,11 +131,7 @@ import "../styles/global.css";
           >
             Netzwerk <span class="text-blue-500">Leitfaden</span>
           </h1>
-          <p
-            class="max-w-2xl
-              text-xl text-slate-400
-              italic"
-          >
+          <p class="max-w-3xl text-xl text-slate-400 italic">
             Vollständige Schritt-für-Schritt-Konfiguration für Gebäude West und Ost. Globales Netz: 
             <span class="text-blue-400 font-mono">10.G.V.X /8</span>
           </p>
@@ -1220,7 +1216,7 @@ import "../styles/global.css";
                       class="text-orange-400 font-bold
                         italic text-[13px]"
                     >
-                      ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Falla)
+                      ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Ausfall)
                     </p>
                   </div>
                 </div>
@@ -1297,7 +1293,7 @@ import "../styles/global.css";
                       class="text-orange-400 font-bold
                         italic text-[13px]"
                     >
-                      ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Falla)
+                      ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Ausfall)
                     </p>
                   </div>
                 </div>
@@ -2131,13 +2127,13 @@ import "../styles/global.css";
     // STATISCHE ROUTEN & BACKUPS
     "ip route 10.2.22.0 255.255.255.0 10.0.99.2": "Richtet eine direkte Abkürzung zwischen Gebäuden über den EtherChannel ein; lokaler Verkehr muss nicht über die Internet-Router laufen.",
     "ip route 10.2.23.0 255.255.255.0 10.0.99.2": "Garantiert, dass die Kommunikation zwischen Abteilungen verschiedener Gebäude privat bleibt und nicht vom externen ISP abhängt.",
-    "ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Falla)": "Lebensversicherung für Daten; fällt der Hauptswitch eines Gebäudes aus, wird der Verkehr über den Nachbarn umgeleitet.",
+    "ip route 10.1.13.0 255.255.255.0 10.0.99.2 20 (Ausfall)": "Lebensversicherung für Daten; fällt der Hauptswitch eines Gebäudes aus, wird der Verkehr über den Nachbarn umgeleitet.",
     "ip route 0.0.0.0 0.0.0.0 10.1.1.1 10 // Über Router 1 - Hauptverbindung": "Hauptausgang. Die '10' ist die administrative Distanz; niedrig gesetzt, damit dieser Weg bevorzugt wird, solange Router 1 aktiv ist.",
     "ip route 0.0.0.0 0.0.0.0 10.0.99.2 50 // Über Router 2 - Backup": "Eine 'Floating Route'. Mit Priorität 50 bleibt sie unsichtbar und wird nur aktiviert, wenn die Hauptverbindung ausfällt.",
 
     "ip route 10.1.12.0 255.255.255.0 10.0.99.1": "Richtet eine direkte Abkürzung zwischen Gebäuden über den EtherChannel ein; lokaler Verkehr muss nicht über die Internet-Router laufen.",
     "ip route 10.1.13.0 255.255.255.0 10.0.99.1": "Garantiert, dass die Kommunikation zwischen Abteilungen verschiedener Gebäude privat bleibt und nicht vom externen ISP abhängt.",
-    "ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Falla)": "Lebensversicherung für Daten; fällt der Hauptswitch eines Gebäudes aus, wird der Verkehr über den Nachbarn umgeleitet.",
+    "ip route 10.2.23.0 255.255.255.0 10.0.99.1 20 (Ausfall)": "Lebensversicherung für Daten; fällt der Hauptswitch eines Gebäudes aus, wird der Verkehr über den Nachbarn umgeleitet.",
     "ip route 0.0.0.0 0.0.0.0 10.2.2.1 10 // Über Router 2 - Hauptverbindung": "Hauptausgang. Die '10' ist die administrative Distanz; niedrig gesetzt, damit dieser Weg bevorzugt wird, solange Router 2 aktiv ist.",
     "ip route 0.0.0.0 0.0.0.0 10.0.99.1 50 // Über Router 1 - Backup": "Eine 'Floating Route'. Mit Priorität 50 bleibt sie unsichtbar und wird nur aktiviert, wenn die Hauptverbindung ausfällt.",
 
