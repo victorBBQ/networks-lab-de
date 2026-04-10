@@ -398,10 +398,14 @@ import "../styles/global.css";
               <p class="text-orange-400/80 italic text-[13px] mb-1">
               // Hinweis: In Gebäude Ost die Reihenfolge umkehren (Zuerst Server Ost, dann West)
               </p>
-              <p>logging host [IP Servidor West]</p> 
-              <p>logging host [IP Servidor Ost]</p> 
+              <p>logging host [IP West-Server]</p> 
+              <p>logging host [IP Ost-Server]</p> 
               <p>logging trap debugging</p>
               <p>logging source-interface vlan 8</p>
+              <p class="text-orange-400/80 italic text-[13px] mb-1">// Zeitsynchronisierung (Server West und Ost)</p>
+              <p>ntp server [IP West-Server]</p>
+              <p>ntp server [IP Ost-Server]</p>
+              <p>clock timezone CET 1</p>
               <p>crypto key generate rsa</p>
               <p>ip ssh version 2</p>
             </div>
@@ -1796,6 +1800,14 @@ import "../styles/global.css";
           </div>
         </section>
 
+        <div class="p-6 bg-red-900/10 border-l-4 border-red-500 rounded-xl mb-12">
+          <p class="text-red-400 font-bold uppercase text-xs mb-2">Wichtig!</p>
+          <p class="text-sm italic">
+            Vergessen Sie nicht, die Konfiguration im nicht-flüchtigen Speicher (NVRAM) jedes Geräts zu speichern, um Datenverlust nach einem Neustart zu vermeiden:
+          </p>
+          <p class="font-mono text-white mt-2"># copy running-config startup-config</p>
+        </div>
+
         <section id="verificacion" class="mb-32">
           <div
             class="p-12
@@ -1978,6 +1990,7 @@ import "../styles/global.css";
   </div>
 </div>
         </section>
+        
 
         <footer
           class="py-10
@@ -2018,6 +2031,9 @@ import "../styles/global.css";
     "hostname [Device_Name]": "Weist dem Gerät einen eindeutigen Namen zu, um es auf dem Campus schnell zu identifizieren. Entscheidend für die Fernverwaltung.",
     "ip domain-name lab.test": "Definiert den Domänennamen des Geräts; eine zwingende technische Voraussetzung für die Erzeugung von SSH-Verschlüsselungsschlüsseln.",
     "no ip domain-lookup": "Verhindert, dass das Gerät versucht, falsch geschriebene Befehle als Webadressen aufzulösen, wodurch unnötige Wartezeiten von 30 Sekunden entfallen.",
+    "ntp server [IP West-Server]": "Konfiguriert den Server im West-Gebäude als primäre Zeitquelle, damit alle Netzwerkereignisse synchronisiert sind.",
+    "ntp server [IP Ost-Server]": "Legt den Server im Ost-Gebäude als sekundäre Zeitquelle fest, um die Zeitgenauigkeit bei einem Ausfall des ersten Servers zu gewährleisten.",
+    "clock timezone CET 1": "Passt die Zeitzone des Geräts an (Central European Time) und stellt sicher, dass die Log-Einträge mit der lokalen Uhrzeit des Unternehmens übereinstimmen.",
     "username cisco privilege 15 secret cisco": "Erstellt einen lokalen Benutzer mit vollen Administratorrechten (Privileg 15) und verschlüsselt dessen Passwort.",
     "enable secret cisco": "Schützt den Zugriff auf den Konfigurationsmodus mit einem hochsicheren verschlüsselten Passwort, um unbefugte Änderungen zu verhindern.",
     "service password-encryption": "Verschlüsselt alle Passwörter in der Konfigurationsdatei und schützt sie vor neugierigen Blicken.",
